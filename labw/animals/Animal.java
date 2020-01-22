@@ -1,8 +1,11 @@
 package animals;
+import java.util.ArrayList;
 
 public class Animal {
 	private String _name;
 	private int _birthYear;
+	private ArrayList<Toy> _toys = new ArrayList<Toy>();
+	private Animal _friend;
 	private static int _year;
 	static String sound = "Morr.";
 	static String type = "djur";
@@ -42,8 +45,26 @@ public class Animal {
 		setBirthYear(_year - age);
 	}
 	
+	public void setFriend(Animal friend) {
+		this._friend = friend;
+	}
+	
+	public Animal getFriend() {
+		return this._friend;
+	}
+	
+	public void addToy(Toy toy) {
+		this._toys.add(toy);
+	}
+	
 	public void introduceYourself() {
 		System.out.println(String.format("%s Jag är ett %s som heter %s.", sound, type, this.getName()));
 		System.out.println(String.format("Jag är %s år gammal.", this.getAge()));
 	}
+	
+	public void print() {
+		this.introduceYourself();
+		
+	}
+
 }
