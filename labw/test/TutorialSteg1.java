@@ -1,8 +1,7 @@
 package test;
 
-import animals.Animal;
-import animals.Cat;
-import animals.Dog;
+import animals.*;
+
 
 public class TutorialSteg1 {
 
@@ -15,6 +14,7 @@ public class TutorialSteg1 {
         allAnimals[0] = new Cat("Kurre");
         allAnimals[1] = new Dog("Vilma");
         allAnimals[2] = new Cat("Bamse");
+        
         
         i = 0;
         while (i < allAnimals.length) {
