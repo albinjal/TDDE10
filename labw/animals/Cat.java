@@ -15,4 +15,5 @@ public class Cat extends Animal {
 		System.out.printf("Jag är %s år gammal. \n", getAge());
 
 	}
+	
 }

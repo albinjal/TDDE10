@@ -1,10 +1,13 @@
 package animals;
+import java.util.ArrayList;
 
 public class Animal {
 
 	private String name;
 	private int birthyear;
 	private static int currentYear;
+	private Animal friend;
+	private ArrayList<Toy> Toys = new ArrayList<Toy>();
 	String sound = "Morr.";
 	String animal = "ett djur";
 	
@@ -31,4 +34,33 @@ public class Animal {
 		return Animal.currentYear - this.birthyear;
 	}
 	
+	public void setFriend(Animal animal) {
+		this.friend = animal;		
+	}
+	
+	public void addToy(Toy toy) {
+		Toys.add(toy);
+	}
+	
+	public void print() {
+		
+		this.introduceYourself();
+		
+		if (friend != null) {
+		       System.out.println("Här är uppgifter om min kompis:");
+		       friend.introduceYourself();
+		    } else {
+		        System.out.println("Jag har ingen kompis.");
+		    }
+		
+		if (!Toys.isEmpty()) {
+			System.out.print("Mina leksaker är");
+			for (Toy toy : Toys) {
+		        System.out.printf(" %s,",toy.getName());
+		    }
+		} else {
+			System.out.print("Jag har inga leksaker.");
+		}
+		System.out.print("\n\n");
+	}
 }
