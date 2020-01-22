@@ -11,7 +11,7 @@ public class TutorialSteg1 {
         int i;
         
         allAnimals = new Animal[3];
-        
+        Animal x = new Animal("hej");
         allAnimals[0] = new Cat("Kurre");
         allAnimals[1] = new Dog("Vilma");
         allAnimals[2] = new Cat("Bamse");

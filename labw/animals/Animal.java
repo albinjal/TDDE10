@@ -1,13 +1,16 @@
 package animals;
 
 public class Animal {
-	String name;
+	public String name;
+	protected String sound = "Morr";
+	protected String type = "djur";
 	
-	public void Animal(String name) {
+	// Constructor
+	public Animal(String name) {
 		this.name = name;
 	}
 	
 	public void introduceYourself() {
-		System.out.print(this.name);
+		System.out.println(String.format("%s. Jag är ett %s som heter %s.", sound, type, this.name));
 	}
 }
