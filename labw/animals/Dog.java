@@ -11,7 +11,10 @@ public class Dog extends Animal{
 	
 	public void introduceYourself() {
 		System.out.printf("%s Jag är %s som heter %s.\n", sound, animal, name);
+		System.out.printf("Jag är %s år gammal. \n", age);
 		System.out.println(sound);
+
+
 	}
 	
 }
