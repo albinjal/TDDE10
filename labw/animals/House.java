@@ -1,6 +1,11 @@
 package animals;
 import java.util.ArrayList;
-
+/**
+ * Represents a house which can contain {@link Animal}
+ * @author albja664
+ * @version 1.0
+ * @since 1.0
+ */
 public class House {
 	private ArrayList<Animal> _animals = new ArrayList<Animal>();
 	

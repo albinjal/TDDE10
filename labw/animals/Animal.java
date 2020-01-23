@@ -10,7 +10,6 @@ public class Animal {
 	static String sound = "Morr.";
 	static String type = "djur";
 	
-	// Constructor
 	public Animal(String name, int age) {
 		this._name = name;
 		this.setBirthYearFromAge(age);
