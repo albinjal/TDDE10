@@ -3,13 +3,13 @@ import java.util.*;
 
 public class Game {
     private Scanner keyboard; 
-    private ArrayList locations;
+    private ArrayList<Location> locations;
     private Player player;
     
     public Game() {
 	    keyboard = new Scanner(System.in);
-	    locations = new ArrayList<>();
-	    locations.add(new Location("Starting location"));
+	    locations = new ArrayList<Location>();
+	    locations.add(new OutdoorsArea("Blå Havet", "Du står på Blå havet men foodtrucksen syns inte till"));
     }
 
     public void run() {

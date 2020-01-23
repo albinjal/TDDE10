@@ -1,9 +1,21 @@
 package the_adventure;
 
-public class Location {
+import java.util.ArrayList;
 
-	public Location() {
-		// TODO Auto-generated constructor stub
+public class Location {
+	private String name;
+	private String description;
+	private ArrayList<Location> paths;
+	public Location(String name, String description) {
+	}
+	
+	public void describeYourself() {
+		System.out.println(this.description);
+	}
+
+	@Override
+	public String toString() {
+		return String.format("Plats: %s", this.name);
 	}
 
 }
