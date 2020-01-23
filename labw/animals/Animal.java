@@ -53,18 +53,37 @@ public class Animal {
 		return this._friend;
 	}
 	
+	private boolean hasFriend() {
+		return this._friend != null;
+	}
+	
 	public void addToy(Toy toy) {
 		this._toys.add(toy);
 	}
 	
+	
 	public void introduceYourself() {
-		System.out.println(String.format("%s Jag är ett %s som heter %s.", sound, type, this.getName()));
+		System.out.println(String.format("%s Jag är en %s som heter %s.", sound, type, this.getName()));
 		System.out.println(String.format("Jag är %s år gammal.", this.getAge()));
 	}
 	
 	public void print() {
 		this.introduceYourself();
-		
+		if (this.hasFriend()) {
+			System.out.println("Låt min vän introducera sig själv:");
+			this.getFriend().introduceYourself();
+		} else {
+			System.out.println("Jag har inga vänner...");
+		}
+		if (this._toys.isEmpty()) {
+			System.out.println("Jag har inga leksaker :(");
+		} else {
+			System.out.println("Mina leksaker är:");
+			for (Toy toy : this._toys) {
+				System.out.print(toy.getName() + ", ");
+			}
+		}
+
 	}
 
 }

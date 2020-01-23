@@ -17,6 +17,7 @@ public class House {
 		
 		for (Animal animal : _animals) {
 			animal.print();
+			System.out.println("\n");
 		}
 		
 	}
