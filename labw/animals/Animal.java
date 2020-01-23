@@ -1,8 +1,13 @@
 package animals;
 import java.util.ArrayList;
 
-public class Animal {
+/**
+ * @author albja295
+ * 
+ */
 
+public class Animal {
+	
 	private String name;
 	private int birthyear;
 	private static int currentYear;
