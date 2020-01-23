@@ -1,3 +1,4 @@
+package the_adventure;
 import java.util.*;
 
 public class Game {
