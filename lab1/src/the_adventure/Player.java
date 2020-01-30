@@ -1,22 +1,26 @@
 package the_adventure;
 
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.Map;
-import java.util.function.Function;
 
-public class Player {
+public class Player extends Commandable {
 	private String name;
 	private Location position;
 	private int csn;
 	private int stamina;
-	Map<String, Function<T,R>> mapping;
+	private ArrayList<Item> items;
+	Map<String, Runnable> commands = new HashMap<>();
 
 	public Player(String name, Location currentLocation) {
+		super();
 		this.setName(name);
 		this.moveTo(currentLocation);
 	}
 	
-	public void doCommand(String command) {
-		
+	@Override
+	public void doCommand(String cmd) {
+		super.doCommand(cmd);
 	}
 	
 	public void moveTo(Location loc) {

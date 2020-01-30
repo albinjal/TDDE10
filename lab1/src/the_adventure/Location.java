@@ -27,6 +27,10 @@ public class Location {
 		System.out.println(this.description);
 	}
 	
+	protected void help() {
+		
+	}
+	
 	public void doCommand(String command) {
 		
 	}
