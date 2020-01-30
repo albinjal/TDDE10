@@ -37,7 +37,6 @@ public class Game {
     			loc.setPath(p, path == -1 ? null : this.locations.get(path));
     			p++;
     		}
-    		loc.printPath();
     		i++;
     	}
 
