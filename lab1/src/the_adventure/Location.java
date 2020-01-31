@@ -2,7 +2,7 @@ package the_adventure;
 
 import java.util.ArrayList;
 
-public class Location {
+public class Location extends Commandable {
 	private String name;
 	private String description;
 	private Location north;
@@ -31,10 +31,6 @@ public class Location {
 		
 	}
 	
-	public void doCommand(String command) {
-		
-	}
-	
 	public void setPath( int path, Location loc) {
 		switch(path) {
 		case 0: this.north = loc; break;
@@ -44,13 +40,29 @@ public class Location {
 		}
 	}
 	
+	public Location getPath(Character dir) {
+		switch (dir) {
+		case 'n': return this.north;
+		case 'e': return this.east;
+		case 's': return this.south;
+		case 'w': return this.west;
+		default: return null;
+		}
+	}
+	
 	public void printPath() {
-		System.out.println(this.north);
+		System.out.println(this.east);
 	}
 
 	@Override
 	public String toString() {
 		return this.name;
 	}
+
+	@Override
+	protected void commandNotFound(String cmd) {
+		
+	}
+	
 
 }

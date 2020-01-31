@@ -14,11 +14,11 @@ public class Game {
 	}
 
 	private void locSetup() {
-		locations.add(new Location("SU", "Du står på Blå havet men foodtrucksen syns inte till"));
-		locations.add(new RoomWithHidden("G-LAN", "Du står på Blå havet men foodtrucksen syns inte till"));
-		locations.add(new Location("Baljan", "Du står på Blå havet men foodtrucksen syns inte till"));
-		locations.add(new Location("C1", "Du står på Blå havet men foodtrucksen syns inte till"));
-		locations.add(new OutdoorsArea("Blå Havet", "Du står på Blå havet men foodtrucksen syns inte till"));
+		locations.add(new Location("SU", "0"));
+		locations.add(new RoomWithHidden("G-LAN", "1"));
+		locations.add(new Location("Baljan", "2"));
+		locations.add(new Location("C1", "3"));
+		locations.add(new OutdoorsArea("Blå Havet", "4"));
 		createPaths();
 	}
 
@@ -34,18 +34,20 @@ public class Game {
 			}
 			i++;
 		}
-
+		
 	}
 
 	public void run() {
 		String name;
 
 		System.out.println("Welcome to the adventure game!\nWhat is your name?");
-		name = keyboard.nextLine();
-		player = new Player(name, locations.get(0));
+		// name = keyboard.nextLine();
+		name = "lul";
+		player = new Player(name, locations.get(4));
 		System.out.println("Hello " + name
 				+ ", welcome to this magical world of wonder! You can move around by typing north/south/west/east. You will have to learn more commands as you play the game! (Hint: there is a command \"help\").");
 
+		player.getLocation().printPath();
 		while (true) {
 			String command;
 
