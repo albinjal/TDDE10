@@ -36,6 +36,11 @@ public class Game {
 		}
 		
 	}
+	
+	private void addItems() {
+		locations.get(4).addItem(new LiuCard("abbster"), this.player);
+		locations.get(4).addItem(new LiuCard("danne"), this.player);
+	}
 
 	public void run() {
 		String name;
@@ -43,7 +48,8 @@ public class Game {
 		System.out.println("Welcome to the adventure game!\nWhat is your name?");
 		// name = keyboard.nextLine();
 		name = "lul";
-		player = new Player(name, locations.get(4));
+		this.player = new Player(name, locations.get(4));
+		this.addItems();
 		System.out.println("Hello " + name
 				+ ", welcome to this magical world of wonder! You can move around by typing north/south/west/east. You will have to learn more commands as you play the game! (Hint: there is a command \"help\").");
 

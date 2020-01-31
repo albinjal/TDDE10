@@ -1,9 +1,16 @@
 package the_adventure;
 
 public abstract class Item extends Commandable {
-
-	public Item() {
-		// TODO Auto-generated constructor stub
+	public Item(String name) {
+		super(name);
 	}
+	
+	@Override
+	protected void commandNotFound(String cmd) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	
 
 }

@@ -3,22 +3,17 @@ package the_adventure;
 import java.util.ArrayList;
 
 public class Location extends Commandable {
-	private String name;
 	private String description;
 	private Location north;
 	private Location west;
 	private Location south;
 	private Location east;
+	private ArrayList<Item> items = new ArrayList<Item>();
 	public Location(String name, String description) {
-		this.north = null;
-		setName(name);
+		super(name);
 		setDesc(description);
 	}
 	
-	private void setName(String name) {
-		this.name = name;
-	}
-
 	private void setDesc(String desc) {
 		this.description = desc;
 	}
@@ -27,9 +22,6 @@ public class Location extends Commandable {
 		System.out.println(this.description);
 	}
 	
-	protected void help() {
-		
-	}
 	
 	public void setPath( int path, Location loc) {
 		switch(path) {
@@ -56,12 +48,31 @@ public class Location extends Commandable {
 
 	@Override
 	public String toString() {
-		return this.name;
+		return this.getName();
 	}
 
 	@Override
 	protected void commandNotFound(String cmd) {
-		
+
+	}
+	
+	@Override
+	protected void addCommands() {
+	}
+	
+	protected void addItem(Item item, Player player) {
+		this.items.add(item);
+		this.addCommand("take " + item.getName(), () -> this.giveItem(item, player));
+	}
+	
+	protected void giveItem(Item item, Player player) {
+		player.addItem(item);
+		this.removeItem(item);
+	}
+	
+	private void removeItem(Item item) {
+		this.items.remove(item);
+		this.deleteCommand("take " + item.getName());
 	}
 	
 

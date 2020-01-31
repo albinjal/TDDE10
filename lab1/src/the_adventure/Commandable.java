@@ -5,19 +5,22 @@ import java.util.Map;
 
 public abstract class Commandable {
 	private Map<String, Runnable> commands = new HashMap<>();
+	private String name;
+
 	
-	public Commandable() {
+	public Commandable(String name) {
+		this.setName(name);
 		this.addCommands();
 	}
 	
-	public boolean doCommand(String cmd) {
+	public int doCommand(String cmd) {
 		Runnable run = this.commands.get(cmd);
 		if (run != null) {
 			run.run();
-			return true;
+			return 1;
 		}
 		this.commandNotFound(cmd);
-		return false;
+		return 0;
 	}
 	
 	protected void help() {
@@ -36,7 +39,17 @@ public abstract class Commandable {
 		System.out.println("This command cant be executed at this point and time");
 	}
 	
-	protected void addCommands() {
-		this.commands.put("help", () -> help());
+	protected abstract void addCommands();
+	
+	protected void deleteCommand(String cmd) {
+		this.commands.remove(cmd);
+	}
+	
+	private void setName(String name) {
+		this.name = name;
+	}
+	
+	public String getName() {
+		return this.name;
 	}
 }

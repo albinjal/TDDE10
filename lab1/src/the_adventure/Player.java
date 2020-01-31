@@ -9,11 +9,11 @@ public class Player extends Commandable {
 	private Location position;
 	private int csn;
 	private int stamina;
-	private ArrayList<Item> items;
+	private ArrayList<Item> items = new ArrayList<Item>();
+
 
 	public Player(String name, Location currentLocation) {
-		super();
-		this.setName(name);
+		super(name);
 		this.moveTo(currentLocation);
 	}
 
@@ -46,18 +46,32 @@ public class Player extends Commandable {
 	protected void help() {
 		System.out.println("\nAvailable commands:");
 		super.help();
+		this.position.help();
+		for (Item item: this.items) {
+			item.help();
+		}
 	}
 	
+	@Override
 	protected void commandNotFound(String cmd) {
-		boolean x = this.position.doCommand(cmd);
+		int x = this.position.doCommand(cmd);
+		for (Item item: this.items) {
+			x += item.doCommand(cmd);
+		}
+		System.out.println(0 == x ? "Command not found, use command: 'help' for options" : "");
+		
 	}
 	
 	@Override
 	protected void addCommands() {
-		super.addCommands();
+		this.addCommand("help", () -> this.help());
 		this.addCommand("north", () -> this.move('n'));
 		this.addCommand("east", () -> this.move('e'));
 		this.addCommand("south", () -> this.move('s'));
 		this.addCommand("west", () -> this.move('w'));
+	}
+	
+	protected void addItem(Item item) {
+		this.items.add(item);
 	}
 }
