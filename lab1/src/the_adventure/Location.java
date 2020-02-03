@@ -9,6 +9,7 @@ public class Location extends Commandable {
 	private Location south;
 	private Location east;
 	private ArrayList<Item> items = new ArrayList<Item>();
+	private Npc npc;
 	public Location(String name, String description) {
 		super(name);
 		setDesc(description);
@@ -74,6 +75,16 @@ public class Location extends Commandable {
 		this.items.remove(item);
 		this.deleteCommand("take " + item.getName());
 	}
+	
+	protected void setNpc(Npc npc) {
+		this.npc = npc;
+	}
+	
+	protected Npc getNpc() {
+		return this.npc;
+	}
+	
+	
 	
 
 }
