@@ -41,6 +41,12 @@ public class Game {
 		locations.get(4).addItem(new LiuCard("abbster", 0.5, 2), this.player);
 		locations.get(4).addItem(new Coffee("danne", 0.3, 4, this.player), this.player);
 	}
+	
+	private void addNpcs() {
+		locations.get(0).setNpc(new Torbjorn("Torbjörn"));
+		locations.get(3).setNpc(new Sec_guard("Securitas guard"));
+		locations.get(4).setNpc(new Torbjornemail("Torbjörn's email"));
+	}
 
 	public void run() {
 		String name;

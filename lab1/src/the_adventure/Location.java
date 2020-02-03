@@ -13,6 +13,7 @@ public class Location extends Commandable {
 	protected static String[] lPaths = {"north", "east", "south", "west"};
 	private boolean visited = false;
 	private ArrayList<Item> items = new ArrayList<Item>();
+	private Npc npc;
 	public Location(String name, String description) {
 		super(name);
 		setDesc(description);
@@ -117,4 +118,13 @@ public class Location extends Commandable {
 	protected String pathName() {
 		return "path";
 	}
+	protected void setNpc(Npc npc) {
+		this.npc = npc;
+	}
+	
+	protected Npc getNpc() {
+		return this.npc;
+	}
+	
+
 }
