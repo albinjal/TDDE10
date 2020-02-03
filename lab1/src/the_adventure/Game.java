@@ -15,7 +15,7 @@ public class Game {
 
 	private void locSetup() {
 		locations.add(new Location("SU", "0"));
-		locations.add(new RoomWithHidden("G-LAN", "1"));
+		locations.add(new RoomWithLocked("G-LAN", "1", locations.get(0)));
 		locations.add(new Location("Baljan", "2"));
 		locations.add(new Location("C1", "3"));
 		locations.add(new OutdoorsArea("Blå Havet", "4"));
@@ -24,7 +24,7 @@ public class Game {
 
 	private void createPaths() {
 		int i = 0;
-		int[][] pathMap = { { -1, -1, 1, -1 }, { 0, -1, 2, 4 }, { 1, -1, -1, 3 }, { 4, 2, -1, -1 }, { -1, 1, 3, -1 }, };
+		int[][] pathMap = { { -1, -1, 1, -1 }, { -1, -1, 2, 4 }, { 1, -1, -1, 3 }, { 4, 2, -1, -1 }, { -1, 1, 3, -1 } };
 		for (int[] paths : pathMap) {
 			Location loc = this.locations.get(i);
 			int p = 0;
@@ -38,8 +38,8 @@ public class Game {
 	}
 	
 	private void addItems() {
-		locations.get(4).addItem(new LiuCard("abbster"), this.player);
-		locations.get(4).addItem(new LiuCard("danne"), this.player);
+		locations.get(4).addItem(new LiuCard("abbster", 0.5, 2), this.player);
+		locations.get(4).addItem(new Coffee("danne", 0.3, 4, this.player), this.player);
 	}
 
 	public void run() {
@@ -52,12 +52,9 @@ public class Game {
 		this.addItems();
 		System.out.println("Hello " + name
 				+ ", welcome to this magical world of wonder! You can move around by typing north/south/west/east. You will have to learn more commands as you play the game! (Hint: there is a command \"help\").");
-
-		player.getLocation().printPath();
+		this.player.getLocation().describeYourself();
 		while (true) {
 			String command;
-
-			player.getLocation().describeYourself();
 			System.out.println("What do you want to do?");
 			command = keyboard.nextLine();
 			player.doCommand(command);

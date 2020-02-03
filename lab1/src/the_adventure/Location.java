@@ -8,6 +8,10 @@ public class Location extends Commandable {
 	private Location west;
 	private Location south;
 	private Location east;
+	protected static Character[] paths = {'n', 'e', 's', 'w'};
+	// Detta blev live fult men de passade olika bra i olika kontexter, paths används internt och lPaths externt (för utskrifter)
+	protected static String[] lPaths = {"north", "east", "south", "west"};
+	private boolean visited = false;
 	private ArrayList<Item> items = new ArrayList<Item>();
 	public Location(String name, String description) {
 		super(name);
@@ -19,7 +23,30 @@ public class Location extends Commandable {
 	}
 	
 	public void describeYourself() {
+		if (!this.visited) {
+		// Denna kod körs första gången platsen besöks
 		System.out.println(this.description);
+		this.visit();
+		} else {
+			System.out.println(String.format("You are back at %s again.", this.getName()));
+		}
+		this.look();
+	}
+	
+	private void describeItems() {
+		if (this.items.isEmpty()) {
+			return;
+		}
+		System.out.print("There is a ");
+		for(int i = 0; i < this.items.size(); i++) {
+			System.out.printf("%s %s", items.get(i).getName(), i != this.items.size() - 1 ? "and a " : "");
+		}
+		System.out.println("laying on the ground.");
+	}
+	
+	protected void look() {
+		this.describePaths();
+		this.describeItems();
 	}
 	
 	
@@ -41,10 +68,6 @@ public class Location extends Commandable {
 		default: return null;
 		}
 	}
-	
-	public void printPath() {
-		System.out.println(this.east);
-	}
 
 	@Override
 	public String toString() {
@@ -58,6 +81,7 @@ public class Location extends Commandable {
 	
 	@Override
 	protected void addCommands() {
+		this.addCommand("look", () -> this.look()) ;
 	}
 	
 	protected void addItem(Item item, Player player) {
@@ -69,11 +93,28 @@ public class Location extends Commandable {
 		player.addItem(item);
 		this.removeItem(item);
 	}
-	
+		
 	private void removeItem(Item item) {
 		this.items.remove(item);
 		this.deleteCommand("take " + item.getName());
 	}
 	
-
+	protected void visit() {
+		this.visited = true;
+	}
+	
+	private void describePaths() {
+		int i = 0;
+		for (Character c : paths) {
+			Location path = this.getPath(c);
+			if (path != null) {
+				System.out.println(String.format("There is a %s leading %s." , pathName(), lPaths[i]));
+			}
+			i++;
+		}
+	}
+	
+	protected String pathName() {
+		return "path";
+	}
 }
