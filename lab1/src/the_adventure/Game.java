@@ -41,11 +41,11 @@ public class Game {
 	}
 	
 	private void addItems() {
-		locations.get(4).addItem(new LiuCard("Liu card", 0.5, 2, this.player), this.player);
-		locations.get(2).addItem(new Coffee("coffe", 0.3, 4, this.player), this.player);
-		locations.get(3).addItem(new Flashlight("flashlight", 0.3, 4, this.player), this.player);
-		locations.get(1).addItem(new Bag("bag", 5, 20, this.player), this.player);
-		locations.get(0).addItem(new Weapon("hard ada book", 2, 20, this.player, 50), this.player);
+		locations.get(4).addItem(new LiuCard("Liu card", 0.5, this.player), this.player);
+		locations.get(2).addItem(new Coffee("coffe", 0.3, this.player), this.player);
+		locations.get(3).addItem(new Flashlight("flashlight", 0.3, this.player), this.player);
+		locations.get(1).addItem(new Bag("bag", 5, this.player), this.player);
+		locations.get(0).addItem(new Weapon("hard ada book", 2, this.player, 50), this.player);
 	}
 	
 	private void addNpcs() {

@@ -3,7 +3,6 @@ package npc;
 import the_adventure.Player;
 
 public class Torbjorn extends Human {
-	private Boolean win = false;
 
 	
 	public Torbjorn(String name, Player player) {

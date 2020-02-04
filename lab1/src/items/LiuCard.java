@@ -4,8 +4,8 @@ import the_adventure.Player;
 
 public class LiuCard extends Tool {
 
-	public LiuCard(String name, double d, int price, Player player) {
-		super(name, d, price, player);
+	public LiuCard(String name, double d, Player player) {
+		super(name, d, player);
 	}
 
 	public void use() {

@@ -17,7 +17,6 @@ public abstract class Npc extends Commandable {
 		super(name);
 		setStamina(100);
 		this.player = player;
-		// TODO Auto-generated constructor stub
 	}
 
 	@Override
@@ -40,10 +39,6 @@ public abstract class Npc extends Commandable {
 	
 	public void deleteItem(Item item) {
 		this.items.remove(item);
-	}
-	
-	public void introduceYourself() {
-		
 	}
 	
 	public Player getPlayer() {

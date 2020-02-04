@@ -5,8 +5,8 @@ import the_adventure.Player;
 
 public class Weapon extends Item {
 	private int dmg;
-	public Weapon(String name, double weight, int price, Player player, int dmg) {
-		super(name, weight, price, player);
+	public Weapon(String name, double weight, Player player, int dmg) {
+		super(name, weight, player);
 		this.setDmg(dmg);
 	}
 	@Override

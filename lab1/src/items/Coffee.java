@@ -5,8 +5,8 @@ import the_adventure.Player;
 public class Coffee extends Tool {
 	private static int staminaGain = 30;
 
-	public Coffee(String name, double weight, int price, Player player) {
-		super(name, weight, price, player);
+	public Coffee(String name, double weight, Player player) {
+		super(name, weight, player);
 	}
 
 	@Override

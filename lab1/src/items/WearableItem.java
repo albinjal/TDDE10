@@ -3,8 +3,8 @@ package items;
 import the_adventure.Player;
 
 public abstract class WearableItem extends Item {
-	public WearableItem(String name, float weight, int price, Player player) {
-		super(name, weight, price, player);
+	public WearableItem(String name, float weight, Player player) {
+		super(name, weight, player);
 	}
 	
 	@Override

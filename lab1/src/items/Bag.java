@@ -7,8 +7,8 @@ public class Bag extends WearableItem {
 	private static int staminaGain = 30;
 	
 	
-	public Bag(String name, float weight, int price, Player player) {
-		super(name, weight, price, player);
+	public Bag(String name, float weight, Player player) {
+		super(name, weight, player);
 	}
 	
 	@Override

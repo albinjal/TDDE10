@@ -94,6 +94,7 @@ public class Location extends Commandable {
 	}
 	
 	public void giveItem(Item item, Player player) {
+		System.out.printf("%s added to your inventory.\n", item.getName());
 		player.addItem(item);
 		this.removeItem(item);
 	}

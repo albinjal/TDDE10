@@ -4,8 +4,8 @@ import the_adventure.Player;
 
 public class Flashlight extends Tool {
 
-	public Flashlight(String name, double weight, int price, Player player) {
-		super(name, weight, price, player);
+	public Flashlight(String name, double weight, Player player) {
+		super(name, weight, player);
 	}
 
 	@Override
