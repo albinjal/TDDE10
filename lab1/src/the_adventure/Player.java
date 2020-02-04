@@ -84,6 +84,7 @@ public class Player extends Commandable {
 		this.addCommand("west", () -> this.move('w'));
 		this.addCommand("items", () -> this.items());
 		this.addCommand("stamina", () -> this.stamina());
+		this.addCommand("ls", () -> this.help());
 	}
 	
 	private void items() {

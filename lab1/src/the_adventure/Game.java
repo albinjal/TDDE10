@@ -2,14 +2,9 @@ package the_adventure;
 
 import java.util.*;
 
-import items.Coffee;
-import items.LiuCard;
-import location.Location;
-import location.OutdoorsArea;
-import location.RoomWithLocked;
-import npc.Sec_guard;
-import npc.Torbjorn;
-import npc.Torbjornemail;
+import items.*;
+import location.*;
+import npc.*;
 
 public class Game {
 	private Scanner keyboard;
@@ -47,8 +42,9 @@ public class Game {
 	}
 	
 	private void addItems() {
-		locations.get(4).addItem(new LiuCard("Liu card", 0.5, 2), this.player);
-		locations.get(4).addItem(new Coffee("Coffe", 0.3, 4, this.player), this.player);
+		locations.get(4).addItem(new LiuCard("Liu card", 0.5, 2, this.player), this.player);
+		locations.get(4).addItem(new Coffee("coffe", 0.3, 4, this.player), this.player);
+		locations.get(3).addItem(new Flashlight("flashlight", 0.3, 4, this.player), this.player);
 	}
 	
 	private void addNpcs() {

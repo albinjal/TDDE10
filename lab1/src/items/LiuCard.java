@@ -1,10 +1,14 @@
 package items;
 
-public class LiuCard extends Item {
+import the_adventure.Player;
 
-	public LiuCard(String name, double d, int price) {
-		super(name, d, price);
+public class LiuCard extends Tool {
+
+	public LiuCard(String name, double d, int price, Player player) {
+		super(name, d, price, player);
 	}
 
-
+	public void use() {
+		this.getPlayer().getLocation().insertLiuCard(this.getPlayer());
+	}
 }

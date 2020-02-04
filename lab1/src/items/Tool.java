@@ -1,10 +1,12 @@
 package items;
 
-public abstract class Tool extends Item {
+import the_adventure.Player;
 
-	public Tool(String name, double weight, int price) {
+public abstract class Tool extends Item {
+	private Player player;
+	public Tool(String name, double weight, int price, Player player) {
 		super(name, weight, price);
-		// TODO Auto-generated constructor stub
+		this.player = player;
 	}
 	
 	@Override
@@ -13,5 +15,9 @@ public abstract class Tool extends Item {
 	}
 	
 	public abstract void use();
+	
+	protected Player getPlayer() {
+		return this.player;
+	}
 
 }

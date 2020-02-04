@@ -138,8 +138,17 @@ public class Location extends Commandable {
 	@Override
 	public void help() {
 		super.help();
-		this.getNpc().help();
+		if (this.getNpc() != null) {
+			this.getNpc().help();
+		}
 	}
 	
+	public void insertLiuCard(Player player) {
+		System.out.print("The Liu card cant unlock anything at this location.");
+	}
+	
+	public void useFlashLight() {
+		System.out.println("Why are you trying to use a flashlight when its alreay light, you are just wasting energy. #Greta");
+	}
 
 }

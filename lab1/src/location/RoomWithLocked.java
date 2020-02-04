@@ -1,21 +1,21 @@
 package location;
 
-public class RoomWithLocked extends Location {
+import the_adventure.Player;
+
+public class RoomWithLocked extends DarkLocation {
 	private Location locked;
-	private boolean light = false;
+	private boolean unlocked = false;
+
 	public RoomWithLocked(String name, String description, Location locked) {
 		super(name, description);
 		this.setLocked(locked);
 	}
 	
 	private void describeLocked() {
-		System.out.println("There is also a locked door.");
+		System.out.println(unlocked ? "There is also a door previously locked." : "There is also a locked door.");
 	}
 	
-	public void lightUp() {
-		this.light = true;
-		this.look();
-	}
+
 	
 	public void setLocked(Location loc) {
 		this.locked = loc;
@@ -28,11 +28,25 @@ public class RoomWithLocked extends Location {
 	
 	@Override
 	public void look() {
-		if (!this.light) {
-			System.out.print("The room is dark and you cant see a thing. I wish we had som light...");
-		} else {
 		super.look();
-		this.describeLocked();
+		if (this.getLit()) {
+			this.describeLocked();
 		}
+	}
+
+	
+	private void enterLocked(Player player) {
+		player.moveTo(locked);
+	}
+	
+	@Override
+	public void insertLiuCard(Player player) {
+		if (this.unlocked) {
+			System.out.println("The door at this location has already been unlocked.");
+		} else {
+			System.out.println("The Liu card unlocked a new door, which can now be entered.");
+			this.addCommand("enter door", () -> this.enterLocked(player));
+		}
+
 	}
 }
