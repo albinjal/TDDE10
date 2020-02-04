@@ -79,7 +79,9 @@ public class Location extends Commandable {
 
 	@Override
 	protected void commandNotFound(String cmd) {
-
+		if (this.getNpc() != null) {
+			this.getNpc().doCommand(cmd);
+		}
 	}
 	
 	@Override
@@ -132,6 +134,12 @@ public class Location extends Commandable {
 		if (this.getNpc() != null) {
 			npc.observe();
 		}
+	}
+	
+	@Override
+	protected void help() {
+		super.help();
+		this.getNpc().help();
 	}
 	
 
