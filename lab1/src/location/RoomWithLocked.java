@@ -28,10 +28,10 @@ public class RoomWithLocked extends Location {
 	
 	@Override
 	public void look() {
-		if (!this.light) {
-			System.out.print("The room is dark and you cant see a thing. I wish we had som light...");
-		} else {
 		super.look();
+		if (!this.light) {
+			System.out.print("The room is dark and you cant see a thing. I wish we had som light...\n");
+		} else {
 		this.describeLocked();
 		}
 	}

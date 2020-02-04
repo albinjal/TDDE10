@@ -1,15 +1,9 @@
 package the_adventure;
 
 import java.util.*;
-
-import items.Coffee;
-import items.LiuCard;
-import location.Location;
-import location.OutdoorsArea;
-import location.RoomWithLocked;
-import npc.Sec_guard;
-import npc.Torbjorn;
-import npc.Torbjornemail;
+import items.*;
+import location.*;
+import npc.*;
 
 public class Game {
 	private Scanner keyboard;
@@ -23,11 +17,11 @@ public class Game {
 	}
 
 	private void locSetup() {
-		locations.add(new Location("SU", "0"));
-		locations.add(new RoomWithLocked("G-LAN", "1", locations.get(0)));
-		locations.add(new Location("Baljan", "2"));
-		locations.add(new Location("C1", "3"));
-		locations.add(new OutdoorsArea("Blå Havet", "4"));
+		locations.add(new Location("SU", "The rooms of SU. Dreaded by many, loved by few. As you enter the room you trust yourself with the fact that the\ncomputers has got two monitors"));
+		locations.add(new RoomWithLocked("G-LAN", "G-Lan, the place for crushing programming courses!\nYou have finally reached one of the few rooms with computers and nice chairs!", locations.get(0)));
+		locations.add(new Location("Baljan", "As you make your way towards Baljan you enter an, all to small, corridor that is overly crowded by students.\nThe students stand in line eagerly wating to buy coffe as to replenish their stamina."));
+		locations.add(new Location("C1", "The lecture hall C1, with blue seats and six whiteboards, smells of coffe and students.\nAt the moment no lecture is held."));
+		locations.add(new OutdoorsArea("Blå Havet", "You find yourself outside, surrounded by hundreds and hundreds of bikes,\nstudents and several big buildings.\nOn a sign you can tell that this place is called Blå Havet"));
 		createPaths();
 	}
 
@@ -47,28 +41,31 @@ public class Game {
 	}
 	
 	private void addItems() {
-		locations.get(4).addItem(new LiuCard("Liu card", 0.5, 2), this.player);
-		locations.get(4).addItem(new Coffee("Coffe", 0.3, 4, this.player), this.player);
+		locations.get(2).addItem(new LiuCard("Liu card", 0.01, 2), this.player);
+		locations.get(2).addItem(new Coffee("Coffe", 0.3, 4, this.player), this.player);
+		locations.get(1).addItem(new Bag("Bag", 5, 20, this.player), this.player);
 	}
 	
 	private void addNpcs() {
 		locations.get(0).setNpc(new Torbjorn("Torbjörn", this.player));
-		locations.get(3).setNpc(new Sec_guard("Securitas guard", this.player));
-		locations.get(4).setNpc(new Torbjornemail("Torbjörn's email", this.player));
+		locations.get(3).setNpc(new Sec_guard("Guard", this.player));
+		locations.get(4).setNpc(new Torbjornemail("Torbjörns email", this.player));
 	}
 
 	public void run() {
 		String name;
 
-		System.out.println("Welcome to the adventure of TDDD11!\nWhat is your name?");
+		System.out.println("Welcome to the very exiting adventure of TDDD11!\nWhat is your name?");
 		// name = keyboard.nextLine();
 		name = "lul";
 		this.player = new Player(name, locations.get(4));
 		this.addItems();
 		this.addNpcs();
 		System.out.println("Hello " + name
-				+ ", welcome to this magical world of wonder! You can move around by typing north/south/west/east. You will have to learn more commands as you play the game! (Hint: there is a command \"help\").");
+				+ ", welcome to this magical course of wonder!\nYou can move around by typing north/south/west/east.\n"
+				+ "You will have to learn more commands as you play the game! (Hint: there is a command \"help\").\n");
 		this.player.getLocation().describeYourself();
+		
 		while (true) {
 			String command;
 			System.out.println("What do you want to do?");

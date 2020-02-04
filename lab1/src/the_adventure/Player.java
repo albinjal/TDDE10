@@ -117,6 +117,10 @@ public class Player extends Commandable {
 		this.items.add(item);
 	}
 	
+	public void addWornitem(WearableItem item) {
+		this.wornItems.add(item);
+	}
+	
 	public void addStamina(int amount) {
 		this.stamina += amount;
 	}
@@ -132,4 +136,10 @@ public class Player extends Commandable {
 	public boolean popItem(Item item) {
 		return this.items.remove(item);
 	}
+	
+	public int getStamina() {
+		return stamina;
+	}
+	
+	
 }
