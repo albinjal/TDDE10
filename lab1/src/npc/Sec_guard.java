@@ -11,13 +11,13 @@ public class Sec_guard extends Human {
 	
 	@Override
 	public void interactWith(Player player) {
-		System.out.printf("I am THE campus security...\n");
+		System.out.printf("I am THE campus security. Make sure to close doors and windows after you open them!\nNow leave me be, can you not se that I am doing importand stuff here??\n");
 
 	}
 	
 	@Override
 	public void observe() {
-		System.out.printf("There is a %s is searching for something on a desk.\n", this.getName());
+		System.out.printf("There is a %s searching for something on a desk.\n", this.getName());
 
 	}
 

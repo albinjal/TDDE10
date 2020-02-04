@@ -11,7 +11,7 @@ public abstract class Human extends Npc {
 	
 	@Override
 	public void addCommands() {
-		this.addCommand("Talk to " + this.getName(), () -> this.interactWith(this.getPlayer()));
+		this.addCommand("talk to " + this.getName(), () -> this.interactWith(this.getPlayer()));
 	}
 	
 	public void interactWith(Player player) {

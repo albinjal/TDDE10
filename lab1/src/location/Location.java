@@ -32,7 +32,7 @@ public class Location extends Commandable {
 	public void describeYourself() {
 		if (!this.visited) {
 		// Denna kod körs första gången platsen besöks
-		System.out.println(this.description);
+		System.out.println(this.description + "\n");
 		this.visit();
 		} else {
 			System.out.println(String.format("You are back at %s again.", this.getName()));

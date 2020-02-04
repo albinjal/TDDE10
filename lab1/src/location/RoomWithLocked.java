@@ -46,6 +46,7 @@ public class RoomWithLocked extends DarkLocation {
 		} else {
 			System.out.println("The Liu card unlocked a new door, which can now be entered.");
 			this.addCommand("enter door", () -> this.enterLocked(player));
+
 		}
 
 	}

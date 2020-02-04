@@ -14,7 +14,7 @@ public class Torbjornemail extends Npc {
 	
 	@Override
 	public void addCommands() {
-		this.addCommand("Read " + this.getName(), () -> this.attack(this.getPlayer(), damage));
+		this.addCommand("read " + this.getName(), () -> this.attack(this.getPlayer(), damage));
 	}
 	
 	@Override
