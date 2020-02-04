@@ -1,4 +1,4 @@
-package the_adventure;
+package items;
 
 public abstract class Tool extends Item {
 
@@ -8,10 +8,10 @@ public abstract class Tool extends Item {
 	}
 	
 	@Override
-	protected void addCommands() {
+	public void addCommands() {
 		this.addCommand("use " + this.getName(), () -> this.use());
 	}
 	
-	protected abstract void use();
+	public abstract void use();
 
 }

@@ -1,4 +1,6 @@
-package the_adventure;
+package npc;
+
+import the_adventure.Player;
 
 public abstract class Human extends Npc {
 
@@ -8,11 +10,11 @@ public abstract class Human extends Npc {
 	}
 	
 	@Override
-	protected void addCommands() {
+	public void addCommands() {
 		this.addCommand("Talk to " + this.getName(), () -> this.interactWith(this.getPlayer()));
 	}
 	
-	protected void interactWith(Player player) {
+	public void interactWith(Player player) {
 		if (!this.getTalkState()) {
 			this.setTalkState(true);
 			System.out.printf("%s: Hello %s!\n My name is %s.\n",this.getName(), player.getName(), this.getName());

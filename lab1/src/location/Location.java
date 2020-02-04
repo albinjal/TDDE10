@@ -1,6 +1,11 @@
-package the_adventure;
+package location;
 
 import java.util.ArrayList;
+
+import items.Item;
+import npc.Npc;
+import the_adventure.Commandable;
+import the_adventure.Player;
 
 public class Location extends Commandable {
 	private String description;
@@ -8,9 +13,9 @@ public class Location extends Commandable {
 	private Location west;
 	private Location south;
 	private Location east;
-	protected static Character[] paths = {'n', 'e', 's', 'w'};
+	public static Character[] paths = {'n', 'e', 's', 'w'};
 	// Detta blev live fult men de passade olika bra i olika kontexter, paths används internt och lPaths externt (för utskrifter)
-	protected static String[] lPaths = {"north", "east", "south", "west"};
+	public static String[] lPaths = {"north", "east", "south", "west"};
 	private boolean visited = false;
 	private ArrayList<Item> items = new ArrayList<Item>();
 	private Npc npc;
@@ -46,10 +51,10 @@ public class Location extends Commandable {
 		System.out.println("laying on the ground.");
 	}
 	
-	protected void look() {
+	public void look() {
 		this.describePaths();
 		this.describeItems();
-		this.describeNpc(this.npc);
+		this.describeNpc();
 	}
 	
 	
@@ -77,24 +82,18 @@ public class Location extends Commandable {
 		return this.getName();
 	}
 
-	@Override
-	protected void commandNotFound(String cmd) {
-		if (this.getNpc() != null) {
-			this.getNpc().doCommand(cmd);
-		}
-	}
 	
 	@Override
-	protected void addCommands() {
+	public void addCommands() {
 		this.addCommand("look", () -> this.look()) ;
 	}
 	
-	protected void addItem(Item item, Player player) {
+	public void addItem(Item item, Player player) {
 		this.items.add(item);
 		this.addCommand("take " + item.getName(), () -> this.giveItem(item, player));
 	}
 	
-	protected void giveItem(Item item, Player player) {
+	public void giveItem(Item item, Player player) {
 		player.addItem(item);
 		this.removeItem(item);
 	}
@@ -104,7 +103,7 @@ public class Location extends Commandable {
 		this.deleteCommand("take " + item.getName());
 	}
 	
-	protected void visit() {
+	public void visit() {
 		this.visited = true;
 	}
 	
@@ -119,25 +118,25 @@ public class Location extends Commandable {
 		}
 	}
 	
-	protected String pathName() {
+	public String pathName() {
 		return "path";
 	}
-	protected void setNpc(Npc npc) {
+	public void setNpc(Npc npc) {
 		this.npc = npc;
 	}
 	
-	protected Npc getNpc() {
+	public Npc getNpc() {
 		return this.npc;
 	}
 	
-	private void describeNpc(Npc npc) {
+	private void describeNpc() {
 		if (this.getNpc() != null) {
-			npc.observe();
+			this.getNpc().observe();
 		}
 	}
 	
 	@Override
-	protected void help() {
+	public void help() {
 		super.help();
 		this.getNpc().help();
 	}

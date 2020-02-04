@@ -1,4 +1,4 @@
-package the_adventure;
+package location;
 
 public class RoomWithLocked extends Location {
 	private Location locked;
@@ -12,24 +12,24 @@ public class RoomWithLocked extends Location {
 		System.out.println("There is also a locked door.");
 	}
 	
-	protected void lightUp() {
+	public void lightUp() {
 		this.light = true;
 		this.look();
 	}
 	
-	protected void setLocked(Location loc) {
+	public void setLocked(Location loc) {
 		this.locked = loc;
 	}
 	
 	@Override
-	protected String pathName() {
+	public String pathName() {
 		return "door";
 	}
 	
 	@Override
-	protected void look() {
-		if (this.light) {
-			System.out.print("The room is dark and you cant see a thing. I wish we had som lighting...");
+	public void look() {
+		if (!this.light) {
+			System.out.print("The room is dark and you cant see a thing. I wish we had som light...");
 		} else {
 		super.look();
 		this.describeLocked();

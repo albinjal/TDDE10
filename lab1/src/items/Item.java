@@ -1,4 +1,6 @@
-package the_adventure;
+package items;
+
+import the_adventure.Commandable;
 
 public abstract class Item extends Commandable {
 	private double weight;
@@ -10,13 +12,7 @@ public abstract class Item extends Commandable {
 	}
 	
 	@Override
-	protected void commandNotFound(String cmd) {
-		// TODO Auto-generated method stub
-		
-	}
-	
-	@Override
-	protected void addCommands() {
+	public void addCommands() {
 		// TODO Auto-generated method stub
 
 	}

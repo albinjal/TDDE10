@@ -2,6 +2,15 @@ package the_adventure;
 
 import java.util.*;
 
+import items.Coffee;
+import items.LiuCard;
+import location.Location;
+import location.OutdoorsArea;
+import location.RoomWithLocked;
+import npc.Sec_guard;
+import npc.Torbjorn;
+import npc.Torbjornemail;
+
 public class Game {
 	private Scanner keyboard;
 	private ArrayList<Location> locations;

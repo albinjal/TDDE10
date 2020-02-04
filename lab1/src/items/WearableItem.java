@@ -1,4 +1,4 @@
-package the_adventure;
+package items;
 
 public abstract class WearableItem extends Item {
 
@@ -8,7 +8,7 @@ public abstract class WearableItem extends Item {
 	}
 	
 	@Override
-	protected void addCommands() {
+	public void addCommands() {
 		
 	}
 

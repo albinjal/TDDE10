@@ -19,29 +19,26 @@ public abstract class Commandable {
 			run.run();
 			return 1;
 		}
-		this.commandNotFound(cmd);
 		return 0;
 	}
 	
-	protected void help() {
+	public void help() {
 		this.commands.keySet().forEach((String key) -> {
 			System.out.println(key);
 		});
 	}
 	
-	protected void addCommand(String cmd, Runnable run) {
+	public void addCommand(String cmd, Runnable run) {
 		this.commands.put(cmd, run);
 	}
 	
-	protected abstract void commandNotFound(String cmd);
-	
-	protected void cantExecuteCommand() {
+	public void cantExecuteCommand() {
 		System.out.println("This command cant be executed at this point and time");
 	}
 	
-	protected abstract void addCommands();
+	public abstract void addCommands();
 	
-	protected void deleteCommand(String cmd) {
+	public void deleteCommand(String cmd) {
 		this.commands.remove(cmd);
 	}
 	

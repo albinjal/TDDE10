@@ -4,6 +4,10 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
+import items.Item;
+import items.WearableItem;
+import location.Location;
+
 public class Player extends Commandable {
 	private String name;
 	private Location position;
@@ -40,12 +44,12 @@ public class Player extends Commandable {
 		return this.name;
 	}
 
-	protected void move(Character dir) {
+	public void move(Character dir) {
 		this.moveTo(this.position.getPath(dir));
 	}
 	
 	@Override
-	protected void help() {
+	public void help() {
 		System.out.println("\nAvailable commands:");
 		super.help();
 		this.position.help();
@@ -55,9 +59,11 @@ public class Player extends Commandable {
 		System.out.println();
 	}
 	
-	@Override
-	protected void commandNotFound(String cmd) {
-		int x = this.position.doCommand(cmd);
+	private void commandNotFound(String cmd) {
+		int x = this.getLocation().doCommand(cmd);
+		if (this.getLocation().getNpc() != null) {
+			x += this.getLocation().getNpc().doCommand(cmd);
+		}
 		for (Item item: this.items) {
 			x += item.doCommand(cmd);
 			if (x > 0) {
@@ -70,7 +76,7 @@ public class Player extends Commandable {
 	}
 	
 	@Override
-	protected void addCommands() {
+	public void addCommands() {
 		this.addCommand("help", () -> this.help());
 		this.addCommand("north", () -> this.move('n'));
 		this.addCommand("east", () -> this.move('e'));
@@ -98,23 +104,32 @@ public class Player extends Commandable {
 		System.out.println();
 	}
 	
-	protected void addItem(Item item) {
+	@Override
+	public int doCommand(String cmd) {
+		int x = super.doCommand(cmd);
+		if (x == 0) {
+			this.commandNotFound(cmd);
+		}
+		return x;
+	}
+	
+	public void addItem(Item item) {
 		this.items.add(item);
 	}
 	
-	protected void addStamina(int amount) {
+	public void addStamina(int amount) {
 		this.stamina += amount;
 	}
 	
-	protected void subtractStamina(int amount) {
+	public void subtractStamina(int amount) {
 		this.stamina -= amount;
 	}
 	
-	protected void stamina() {
+	public void stamina() {
 		System.out.printf("Current stamina: %s\n", this.stamina);
 	}
 	
-	protected boolean popItem(Item item) {
+	public boolean popItem(Item item) {
 		return this.items.remove(item);
 	}
 }

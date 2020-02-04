@@ -1,4 +1,6 @@
-package the_adventure;
+package npc;
+
+import the_adventure.Player;
 
 public class Torbjornemail extends Npc {
 
@@ -11,18 +13,18 @@ public class Torbjornemail extends Npc {
 	}
 	
 	@Override
-	protected void addCommands() {
+	public void addCommands() {
 		this.addCommand("Read " + this.getName(), () -> this.attack(this.getPlayer(), damage));
 	}
 	
 	@Override
-	protected void observe() {
+	public void observe() {
 		if (!redemail) {
 			System.out.print("You have a email on your phone.\n");
 		}
 	}
 	
-	protected void attack(Player player, int amount) {
+	public void attack(Player player, int amount) {
 		player.subtractStamina(amount);
 		System.out.printf("%s: Welcome to the course! \n ....\n", this.getName());
 		redemail = true;

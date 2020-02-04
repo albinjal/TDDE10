@@ -1,4 +1,6 @@
-package the_adventure;
+package items;
+
+import the_adventure.Player;
 
 public class Coffee extends Tool {
 	private static int staminaGain = 30;
@@ -9,7 +11,7 @@ public class Coffee extends Tool {
 	}
 
 	@Override
-	protected void use() {
+	public void use() {
 		this.player.addStamina(staminaGain);
 		this.player.popItem(this);
 		System.out.printf("Coffe gives you energy, stamina increased by %s.\n", staminaGain);

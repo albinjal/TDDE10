@@ -1,4 +1,4 @@
-package the_adventure;
+package location;
 
 public class OutdoorsArea extends Location {
 	private boolean sunny = false;
@@ -7,7 +7,7 @@ public class OutdoorsArea extends Location {
 	}
 	
 	@Override
-	protected void addCommands() {
+	public void addCommands() {
 		super.addCommands();
 		this.addCommand("weather", () -> this.printWeather());
 	}
@@ -24,7 +24,7 @@ public class OutdoorsArea extends Location {
 	}
 	
 	@Override
-	protected String pathName() {
+	public String pathName() {
 		return "road";
 	}
 }

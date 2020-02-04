@@ -1,4 +1,6 @@
-package the_adventure;
+package npc;
+
+import the_adventure.Player;
 
 public class Sec_guard extends Human {
 
@@ -8,13 +10,13 @@ public class Sec_guard extends Human {
 	}
 	
 	@Override
-	protected void interactWith(Player player) {
+	public void interactWith(Player player) {
 		System.out.printf("I am THE campus security...\n");
 
 	}
 	
 	@Override
-	protected void observe() {
+	public void observe() {
 		System.out.printf("There is a %s is searching for something on a desk.\n", this.getName());
 
 	}

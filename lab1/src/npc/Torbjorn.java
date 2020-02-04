@@ -1,4 +1,6 @@
-package the_adventure;
+package npc;
+
+import the_adventure.Player;
 
 public class Torbjorn extends Human {
 	
@@ -10,13 +12,13 @@ public class Torbjorn extends Human {
 	}
 	
 	@Override
-	protected void interactWith(Player player) {
+	public void interactWith(Player player) {
 		System.out.printf("I am you course admin...\n");
 
 	}
 	
 	@Override
-	protected void observe() {
+	public void observe() {
 		System.out.printf("%s is standing, lurking in the shadows...\n", this.getName());
 	}
 	

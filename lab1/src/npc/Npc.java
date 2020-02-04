@@ -1,6 +1,10 @@
-package the_adventure;
+package npc;
 
 import java.util.ArrayList;
+
+import items.Item;
+import the_adventure.Commandable;
+import the_adventure.Player;
 
 public abstract class Npc extends Commandable {
 
@@ -17,53 +21,47 @@ public abstract class Npc extends Commandable {
 	}
 
 	@Override
-	protected void commandNotFound(String cmd) {
-		// TODO Auto-generated method stub
-
-	}
-
-	@Override
-	protected void addCommands() {
+	public void addCommands() {
 		// TODO Auto-generated method stub
 
 	}
 	
-	protected int getStamina() {
+	public int getStamina() {
 		return stamina;
 	}
 	
-	protected void setStamina(int stam) {
+	public void setStamina(int stam) {
 		this.stamina = stam; 
 	}
 	
-	protected void addItem(Item item) {
+	public void addItem(Item item) {
 		items.add(item);
 	}
 	
-	protected void deleteItem(Item item) {
+	public void deleteItem(Item item) {
 		this.items.remove(item);
 	}
 	
-	protected void introduceYourself() {
+	public void introduceYourself() {
 		
 	}
 	
-	protected Player getPlayer() {
+	public Player getPlayer() {
 		return player;
 	}
 	
-	protected void setPlayer(Player player) {
+	public void setPlayer(Player player) {
 		this.player = player;
 	}
 	
-	protected Boolean getTalkState() {
+	public Boolean getTalkState() {
 		return talkState;
 	}
 	
-	protected void setTalkState(Boolean value) {
+	public void setTalkState(Boolean value) {
 		this.talkState = value;
 	}
 	
-	protected abstract void observe();
+	public abstract void observe();
 
 }

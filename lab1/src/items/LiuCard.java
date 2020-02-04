@@ -1,4 +1,4 @@
-package the_adventure;
+package items;
 
 public class LiuCard extends Item {
 
