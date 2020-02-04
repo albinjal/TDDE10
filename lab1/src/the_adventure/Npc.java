@@ -6,10 +6,13 @@ public abstract class Npc extends Commandable {
 
 	private int stamina;
 	private ArrayList<Item> items = new ArrayList<Item>();
+	private Player player;
+	private Boolean talkState = false;
 		
-	public Npc(String name) {
+	public Npc(String name, Player player) {
 		super(name);
 		setStamina(100);
+		this.player = player;
 		// TODO Auto-generated constructor stub
 	}
 
@@ -40,5 +43,27 @@ public abstract class Npc extends Commandable {
 	protected void deleteItem(Item item) {
 		this.items.remove(item);
 	}
+	
+	protected void introduceYourself() {
+		
+	}
+	
+	protected Player getPlayer() {
+		return player;
+	}
+	
+	protected void setPlayer(Player player) {
+		this.player = player;
+	}
+	
+	protected Boolean getTalkState() {
+		return talkState;
+	}
+	
+	protected void setTalkState(Boolean value) {
+		this.talkState = value;
+	}
+	
+	protected abstract void observe();
 
 }

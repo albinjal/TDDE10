@@ -49,6 +49,7 @@ public class Player extends Commandable {
 		System.out.println("\nAvailable commands:");
 		super.help();
 		this.position.help();
+		this.position.getNpc().help();
 		for (Item item: this.items) {
 			item.help();
 		}
@@ -63,6 +64,10 @@ public class Player extends Commandable {
 			if (x > 0) {
 				break;
 			}
+		if (this.position.getNpc() != null) {
+			x += this.position.getNpc().doCommand(cmd);
+		}
+		
 		}
 		System.out.println(0 == x ? "Command not found, use command: 'help' for options" : "");
 		
@@ -103,6 +108,10 @@ public class Player extends Commandable {
 	
 	protected void addStamina(int amount) {
 		this.stamina += amount;
+	}
+	
+	protected void subtractStamina(int amount) {
+		this.stamina -= amount;
 	}
 	
 	protected void stamina() {

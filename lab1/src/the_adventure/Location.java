@@ -14,6 +14,7 @@ public class Location extends Commandable {
 	private boolean visited = false;
 	private ArrayList<Item> items = new ArrayList<Item>();
 	private Npc npc;
+	
 	public Location(String name, String description) {
 		super(name);
 		setDesc(description);
@@ -48,6 +49,7 @@ public class Location extends Commandable {
 	protected void look() {
 		this.describePaths();
 		this.describeItems();
+		this.describeNpc(this.npc);
 	}
 	
 	
@@ -124,6 +126,12 @@ public class Location extends Commandable {
 	
 	protected Npc getNpc() {
 		return this.npc;
+	}
+	
+	private void describeNpc(Npc npc) {
+		if (this.getNpc() != null) {
+			npc.observe();
+		}
 	}
 	
 
