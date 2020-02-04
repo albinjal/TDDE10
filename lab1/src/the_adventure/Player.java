@@ -11,7 +11,6 @@ import location.Location;
 public class Player extends Commandable {
 	private String name;
 	private Location position;
-	private int csn;
 	private int stamina = 100;
 	private ArrayList<Item> items = new ArrayList<Item>();
 	private ArrayList<WearableItem> wornItems = new ArrayList<WearableItem>();
@@ -88,22 +87,13 @@ public class Player extends Commandable {
 	}
 	
 	private void items() {
-		System.out.print("Items in inventor:");
-		printItems(this.items);
-		System.out.print("Worn items:");
-		printItems(this.wornItems);
+		System.out.println("Items in inventory:");
+		Item.printItems(this.items);
+		System.out.println("Worn items:");
+		Item.printItems(this.wornItems);
 
 	}
-	 
-	private static <T extends Item>void printItems(ArrayList<T> items) {
-		// Denna va inte dålig ^^
-		int i = 1;
-		for (Item item : items) {
-			System.out.printf(" %s%s", item.getName(), i == items.size() ? "." : ",");
-			i++;
-		}
-		System.out.println();
-	}
+
 	
 	@Override
 	public int doCommand(String cmd) {

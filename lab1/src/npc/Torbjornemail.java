@@ -4,7 +4,7 @@ import the_adventure.Player;
 
 public class Torbjornemail extends Npc {
 
-	private static int damage = 40;
+	private static int damage = 20;
 	private Boolean redemail = false;
 	
 	public Torbjornemail(String name, Player player) {
@@ -28,8 +28,6 @@ public class Torbjornemail extends Npc {
 		player.subtractStamina(amount);
 		System.out.printf("%s: Welcome to the course! \n ....\n", this.getName());
 		redemail = true;
-		
-		
 	}
 	
 

@@ -9,14 +9,12 @@ public class Bag extends WearableItem {
 	
 	public Bag(String name, float weight, int price, Player player) {
 		super(name, weight, price, player);
-		
-		// TODO Auto-generated constructor stub
 	}
 	
 	@Override
-	public void wear(Player player) {
-		super.wear(player);
-		player.subtractStamina(this.getStamina());
+	public void wear() {
+		super.wear();
+		this.getPlayer().subtractStamina(this.getStamina());
 		System.out.printf("You put on the %s and gain %s stamina!", this.getName(), this.getStamina());
 	}
 	

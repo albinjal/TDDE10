@@ -42,23 +42,23 @@ public class Game {
 	
 	private void addItems() {
 		locations.get(4).addItem(new LiuCard("Liu card", 0.5, 2, this.player), this.player);
-		locations.get(4).addItem(new Coffee("coffe", 0.3, 4, this.player), this.player);
+		locations.get(2).addItem(new Coffee("coffe", 0.3, 4, this.player), this.player);
 		locations.get(3).addItem(new Flashlight("flashlight", 0.3, 4, this.player), this.player);
 		locations.get(1).addItem(new Bag("bag", 5, 20, this.player), this.player);
+		locations.get(0).addItem(new Weapon("hard ada book", 2, 20, this.player, 50), this.player);
 	}
 	
 	private void addNpcs() {
 		locations.get(0).setNpc(new Torbjorn("Torbjörn", this.player));
 		locations.get(3).setNpc(new Sec_guard("Guard", this.player));
-		locations.get(4).setNpc(new Torbjornemail("Torbjörns email", this.player));
+		locations.get(4).setNpc(new Torbjornemail("email", this.player));
 	}
 
 	public void run() {
 		String name;
 
 		System.out.println("Welcome to the very exiting adventure of TDDD11!\nWhat is your name?");
-		// name = keyboard.nextLine();
-		name = "lul";
+		name = keyboard.nextLine();
 		this.player = new Player(name, locations.get(4));
 		this.addItems();
 		this.addNpcs();

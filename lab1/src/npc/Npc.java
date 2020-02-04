@@ -62,6 +62,18 @@ public abstract class Npc extends Commandable {
 		this.talkState = value;
 	}
 	
+	public void subtractStamina(int amount) {
+		this.stamina -= amount;
+		if (this.stamina <= 0) {
+			this.kill();
+		}
+	}
+	
+	private void kill() {
+		System.out.println("AAAAAAA you just killed me im so angry. rawr.");
+		this.getPlayer().getLocation().setNpc(null);
+	}
+	
 	public abstract void observe();
 
 }
