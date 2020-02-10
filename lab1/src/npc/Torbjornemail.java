@@ -9,7 +9,6 @@ public class Torbjornemail extends Npc {
 	
 	public Torbjornemail(String name, Player player) {
 		super(name, player);
-		// TODO Auto-generated constructor stub
 	}
 	
 	@Override
