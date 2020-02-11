@@ -6,11 +6,12 @@ public final class Main {
 	}
 
 	public static void main(String[] args) {
-
+		tests();
 	}
 
-	public void tests() {
-
+	public static void tests() {
+		// TestStack.test();
+		TestQueue.test();
 	}
 
 }
