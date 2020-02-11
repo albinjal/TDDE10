@@ -15,6 +15,5 @@ public abstract class TestList {
 		System.out.println(list.size());
 		System.out.println(list.getElementAt(4));
 		list.print();
-		// print add get size
 	}
 }
