@@ -5,8 +5,7 @@ public class MyList<E> implements BaseList<E> {
 
 	@Override
 	public boolean isEmpty() {
-
-		return false;
+		return this.getFirstNode() == null;
 	}
 
 	@Override
@@ -14,8 +13,8 @@ public class MyList<E> implements BaseList<E> {
 		int size = 0;
 		MyNode<E> currentNode = this.getFirstNode();
 		while (currentNode != null) {
-			size++;
 			currentNode = currentNode.getNextRef();
+			size++;
 		}
 		return size;
 
@@ -37,13 +36,14 @@ public class MyList<E> implements BaseList<E> {
 
 	@Override
 	public E getElementAt(int i) {
-		if (i >= this.size() ) {
-			throw new GetElementAtEmptyListException();
-		}
 		int currentIndex = 0;
 		MyNode<E> currentNode = this.getFirstNode();
 		while (currentIndex < i) {
+			if (currentNode == null) {
+				throw new IndexOutOfBoundsException();
+			}
 			currentNode = currentNode.getNextRef();
+			
 			currentIndex++;
 		}
 		return currentNode.getData();
@@ -55,6 +55,24 @@ public class MyList<E> implements BaseList<E> {
 	
 	private void setFirstNode(MyNode<E> node) {
 		this.firstNode = node;
+	}
+
+	@Override
+	public Integer getIndexOf(E element) {
+		MyNode<E> currentNode = this.getFirstNode();
+		if (currentNode == null) {
+			return null;
+		}
+		Integer i = 0;
+		while (!currentNode.equals(element)) {
+			currentNode = currentNode.getNextRef();
+			i++;
+			if (currentNode == null) {
+				return null;
+			}
+
+		}
+		return i;
 	}
 
 }

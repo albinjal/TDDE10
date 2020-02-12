@@ -1,4 +1,5 @@
 package myutil_tests;
+import myutil.BaseStack;
 import myutil.MyStack;
 public abstract class TestStack {
 
@@ -6,23 +7,33 @@ public abstract class TestStack {
 	}
 	
 	public static void test() {
-		MyStack<Integer> testStack = new MyStack<Integer>();
+		boolean works = true;
+		BaseStack<Integer> testStack = new MyStack<Integer>();
 		testStack.push(2);
 		testStack.push(3);
 		testStack.push(1);
 		testStack.print();
-		System.out.println(testStack.pop());
+		if (testStack.size() != 3) {
+			System.out.print("MyStack.size() ERROR");
+			works = false;
+		}
+		if (testStack.pop() != 1 || testStack.size() != 2) {
+			System.out.print("MyStack.pop() ERROR");
+			works = false;
+		}
 		testStack.print();
-		System.out.println(testStack.size());
-		System.out.println(testStack.isEmpty());
-		testStack.push(3);
-		testStack.push(1);
-		testStack.print();
-		testStack.pop();
-		testStack.pop();
-		testStack.pop();
-		testStack.pop();
-		testStack.pop();
+		if (testStack.isEmpty()) {
+			System.out.print("MyStack.isEmpty() ERROR");
+			works = false;
+		}
+		if (!works) {
+			System.out.print("MyStack doesn't work");
+		}
+		else {
+			System.out.print("MyStack works");
+
+		}
+
 
 
 	}

@@ -10,9 +10,10 @@ public final class Main {
 	}
 
 	public static void tests() {
-		// TestStack.test();
-		// TestQueue.test();
+		TestStack.test();
+		TestQueue.test();
 		TestList.test();
+		TestMap.test();
 	}
 
 }
