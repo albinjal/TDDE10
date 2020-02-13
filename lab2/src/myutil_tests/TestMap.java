@@ -16,13 +16,13 @@ public abstract class TestMap {
 		map.put("A2", 2);
 		map.put("A3", 3);
 		map.put("A4", 4);
-		
+		map.print();
 		if (map.size() != 4) {
 			System.out.println("Map.size() ERROR");
 			works = false;
 		}
 		
-		if (map.get("A3") == 3) {
+		if (map.get("A3") != 3) {
 			System.out.println("Map.get() ERROR");
 			works = false;
 		}
@@ -31,10 +31,10 @@ public abstract class TestMap {
 			works = false;
 		}
 		if (!works) {
-			System.out.print("MyMap doesn't work");
+			System.out.println("MyMap doesn't work");
 		}
 		else {
-			System.out.print("MyMap works");
+			System.out.println("MyMap works");
 
 		}
 	}

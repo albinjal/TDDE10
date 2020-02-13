@@ -14,23 +14,23 @@ public abstract class TestStack {
 		testStack.push(1);
 		testStack.print();
 		if (testStack.size() != 3) {
-			System.out.print("MyStack.size() ERROR");
+			System.out.println("MyStack.size() ERROR");
 			works = false;
 		}
 		if (testStack.pop() != 1 || testStack.size() != 2) {
-			System.out.print("MyStack.pop() ERROR");
+			System.out.println("MyStack.pop() ERROR");
 			works = false;
 		}
 		testStack.print();
 		if (testStack.isEmpty()) {
-			System.out.print("MyStack.isEmpty() ERROR");
+			System.out.println("MyStack.isEmpty() ERROR");
 			works = false;
 		}
 		if (!works) {
-			System.out.print("MyStack doesn't work");
+			System.out.println("MyStack doesn't work");
 		}
 		else {
-			System.out.print("MyStack works");
+			System.out.println("MyStack works");
 
 		}
 

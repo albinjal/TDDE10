@@ -15,20 +15,20 @@ public abstract class TestList {
 		list.add(6);
 		list.add(7);
 		if (list.size() != 7) {
-			System.out.print("MyList.size() ERROR");
+			System.out.println("MyList.size() ERROR");
 			works = false;
 
 		}
 		if (list.getElementAt(4) != 3) {
-			System.out.print("MyList.getElementAt() ERROR");
+			System.out.println("MyList.getElementAt() ERROR");
 			works = false;
 		}
 		list.print();
 		if (!works) {
-			System.out.print("MyList doesn't work");
+			System.out.println("MyList doesn't work");
 		}
 		else {
-			System.out.print("MyList works");
+			System.out.println("MyList works");
 
 		}
 	}

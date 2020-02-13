@@ -24,10 +24,10 @@ public abstract class TestQueue {
 		queue.dequeue();
 		queue.print();
 		if (!works) {
-			System.out.print("MyQueue doesn't work");
+			System.out.println("MyQueue doesn't work");
 		}
 		else {
-			System.out.print("MyQueue works");
+			System.out.println("MyQueue works");
 
 		}
 		
