@@ -1,20 +1,24 @@
 package myutil;
 
 public class MyNode<E> {
-	private MyNode<E> ref;
+	private MyNode<E> nextRef;
 	private E data;
 	
-	public MyNode(E data, MyNode<E> ref) {
+	public MyNode(E data, MyNode<E> nextRef) {
 		this.setData(data);
-		this.setRef(ref);
+		this.setNextRef(nextRef);
 	}
 	
-	public MyNode<E> getRef() {
-		return this.ref;
+	public void printData() {
+		System.out.println(data);
 	}
 	
-	public void setRef(MyNode<E> node) {
-		this.ref = node;
+	public MyNode<E> getNextRef() {
+		return this.nextRef;
+	}
+	
+	public void setNextRef(MyNode<E> node) {
+		this.nextRef = node;
 	}
 	
 	public E getData() {

@@ -5,7 +5,6 @@ public class MyStack<E> implements BaseStack<E> {
 	private MyNode<E> topNode;
 	
 	public MyStack() {
-		// TODO Auto-generated constructor stub
 	}
 
 	@Override
@@ -16,7 +15,10 @@ public class MyStack<E> implements BaseStack<E> {
 	@Override
 	public E pop() {
 		final MyNode<E> prevNode = this.getTopNode();
-		this.setTopNode(prevNode.getRef());
+		if (prevNode == null) {
+			throw new PopEmptyStackException();
+		}
+		this.setTopNode(prevNode.getNextRef());
 		return prevNode.getData();
 	}
 
@@ -27,8 +29,22 @@ public class MyStack<E> implements BaseStack<E> {
 
 	@Override
 	public int size() {
-		// TODO Auto-generated method stub
-		return 0;
+		int size = 0;
+		MyNode<E> currentNode = this.getTopNode();
+		while (currentNode != null) {
+			currentNode = currentNode.getNextRef();
+			size++;
+		}
+		return size;
+	}
+	
+	@Override
+	public void print() {
+		MyNode<E> currentNode = this.getTopNode();
+		while (currentNode != null) {
+			currentNode.printData();
+			currentNode = currentNode.getNextRef();
+		}
 	}
 	
 	private MyNode<E> getTopNode() {
@@ -38,4 +54,5 @@ public class MyStack<E> implements BaseStack<E> {
 	private void setTopNode(MyNode<E> node) {
 		this.topNode = node;
 	}
+	
 }
