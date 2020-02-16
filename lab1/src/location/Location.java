@@ -85,14 +85,14 @@ public class Location extends Commandable {
 	
 	@Override
 	public void addCommands() {
-		this.addCommand("look", () -> this.look()) ;
+		this.addCommand("look", (Player player) -> this.look()) ;
 	}
 	
-	public void addItem(Item item, Player player) {
+	public void addItem(Item item) {
 		this.items.add(item);
-		this.addCommand("take " + item.getName(), () -> this.giveItem(item, player));
+		this.addCommand("take " + item.getName(), (Player player) -> this.giveItem(item, player));
 	}
-	
+
 	public void giveItem(Item item, Player player) {
 		System.out.printf("%s added to your inventory.\n", item.getName());
 		player.addItem(item);
@@ -144,7 +144,7 @@ public class Location extends Commandable {
 		}
 	}
 	
-	public void insertLiuCard(Player player) {
+	public void insertLiuCard() {
 		System.out.print("The Liu card cant unlock anything at this location.");
 	}
 	

@@ -4,7 +4,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 public abstract class Commandable {
-	private Map<String, Runnable> commands = new HashMap<>();
+	private Map<String, Command> commands = new HashMap<>();
 	private String name;
 
 	
@@ -13,10 +13,10 @@ public abstract class Commandable {
 		this.addCommands();
 	}
 	
-	public int doCommand(String cmd) {
-		Runnable run = this.commands.get(cmd);
-		if (run != null) {
-			run.run();
+	public int doCommand(String cmd, Player player) {
+		Command cmdAction = this.commands.get(cmd);
+		if (cmdAction != null) {
+			cmdAction.execute(player);
 			return 1;
 		}
 		return 0;
@@ -28,7 +28,7 @@ public abstract class Commandable {
 		});
 	}
 	
-	public void addCommand(String cmd, Runnable run) {
+	public void addCommand(String cmd, Command run) {
 		this.commands.put(cmd, run);
 	}
 	

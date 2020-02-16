@@ -4,9 +4,8 @@ import the_adventure.Player;
 
 public class Sec_guard extends Human {
 
-	public Sec_guard(String name, Player player) {
-		super(name, player);
-		// TODO Auto-generated constructor stub
+	public Sec_guard(String name) {
+		super(name);
 	}
 	
 	@Override

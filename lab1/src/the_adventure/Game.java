@@ -13,7 +13,9 @@ public class Game {
 	public Game() {
 		keyboard = new Scanner(System.in);
 		locations = new ArrayList<Location>();
-		locSetup();
+		this.locSetup();
+		this.addItems();
+		this.addNpcs();
 	}
 
 	private void locSetup() {
@@ -41,17 +43,17 @@ public class Game {
 	}
 	
 	private void addItems() {
-		locations.get(4).addItem(new LiuCard("Liu card", 0.5, this.player), this.player);
-		locations.get(2).addItem(new Coffee("coffe", 0.3, this.player), this.player);
-		locations.get(3).addItem(new Flashlight("flashlight", 0.3, this.player), this.player);
-		locations.get(1).addItem(new Bag("bag", 5, this.player), this.player);
-		locations.get(0).addItem(new Weapon("hard ada book", 2, this.player, 50), this.player);
+		locations.get(4).addItem(new LiuCard("Liu card", 0.5));
+		locations.get(2).addItem(new Coffee("coffe", 0.3));
+		locations.get(3).addItem(new Flashlight("flashlight", 0.3));
+		locations.get(1).addItem(new Bag("bag", 5));
+		locations.get(0).addItem(new Weapon("hard ada book", 2, 50));
 	}
 	
 	private void addNpcs() {
-		locations.get(0).setNpc(new Torbjorn("Torbjörn", this.player));
-		locations.get(3).setNpc(new Sec_guard("Guard", this.player));
-		locations.get(4).setNpc(new Torbjornemail("email", this.player));
+		locations.get(0).setNpc(new Torbjorn("Torbjörn"));
+		locations.get(3).setNpc(new Sec_guard("Guard"));
+		locations.get(4).setNpc(new Torbjornemail("email"));
 	}
 
 	public void run() {
@@ -60,8 +62,6 @@ public class Game {
 		System.out.println("Welcome to the very exiting adventure of TDDD11!\nWhat is your name?");
 		name = keyboard.nextLine();
 		this.player = new Player(name, locations.get(4));
-		this.addItems();
-		this.addNpcs();
 		System.out.println("Hello " + name
 				+ ", welcome to this magical course of wonder!\nYou can move around by typing north/south/west/east.\n"
 				+ "You will have to learn more commands as you play the game! (Hint: there is a command \"help\").\n");
@@ -71,7 +71,7 @@ public class Game {
 			String command;
 			System.out.println("What do you want to do?");
 			command = keyboard.nextLine();
-			player.doCommand(command);
+			player.doCommand(command, player);
 		}
 	}
 }

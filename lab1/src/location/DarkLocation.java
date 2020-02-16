@@ -4,7 +4,6 @@ public abstract class DarkLocation extends Location {
 	private boolean light = false;
 	public DarkLocation(String name, String description) {
 		super(name, description);
-		// TODO Auto-generated constructor stub
 	}
 	
 	public void lightUp() {

@@ -1,5 +1,7 @@
 package location;
 
+import the_adventure.Player;
+
 public class OutdoorsArea extends Location {
 	private boolean sunny = false;
 	public OutdoorsArea(String name, String description) {
@@ -9,7 +11,7 @@ public class OutdoorsArea extends Location {
 	@Override
 	public void addCommands() {
 		super.addCommands();
-		this.addCommand("weather", () -> this.printWeather());
+		this.addCommand("weather", (Player player) -> this.printWeather());
 	}
 	
 	private void printWeather() {

@@ -4,14 +4,13 @@ import the_adventure.Player;
 
 public abstract class Human extends Npc {
 
-	public Human(String name, Player player) {
-		super(name, player);
-		// TODO Auto-generated constructor stub
+	public Human(String name) {
+		super(name);
 	}
 	
 	@Override
 	public void addCommands() {
-		this.addCommand("talk to " + this.getName(), () -> this.interactWith(this.getPlayer()));
+		this.addCommand("talk to " + this.getName(), (Player player) -> this.interactWith(player));
 	}
 	
 	public void interactWith(Player player) {

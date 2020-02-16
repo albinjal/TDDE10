@@ -40,12 +40,12 @@ public class RoomWithLocked extends DarkLocation {
 	}
 	
 	@Override
-	public void insertLiuCard(Player player) {
+	public void insertLiuCard() {
 		if (this.unlocked) {
 			System.out.println("The door at this location has already been unlocked.");
 		} else {
 			System.out.println("The Liu card unlocked a new door, which can now be entered.");
-			this.addCommand("enter door", () -> this.enterLocked(player));
+			this.addCommand("enter door", (Player player) -> this.enterLocked(player));
 
 		}
 

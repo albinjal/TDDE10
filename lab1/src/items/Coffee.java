@@ -5,16 +5,16 @@ import the_adventure.Player;
 public class Coffee extends Tool {
 	private static int staminaGain = 30;
 
-	public Coffee(String name, double weight, Player player) {
-		super(name, weight, player);
+	public Coffee(String name, double weight) {
+		super(name, weight);
 	}
 
 	@Override
-	public void use() {
-		this.getPlayer().addStamina(staminaGain);
-		this.getPlayer().popItem(this);
+	public void use(Player player) {
+		player.addStamina(staminaGain);
+		player.popItem(this);
 		System.out.printf("Coffe gives you energy, stamina increased by %s.\n", staminaGain);
-		this.getPlayer().stamina();
+		player.stamina();
 	}
 
 }

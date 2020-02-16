@@ -7,13 +7,13 @@ public class Torbjornemail extends Npc {
 	private static int damage = 20;
 	private Boolean redemail = false;
 	
-	public Torbjornemail(String name, Player player) {
-		super(name, player);
+	public Torbjornemail(String name) {
+		super(name);
 	}
 	
 	@Override
 	public void addCommands() {
-		this.addCommand("read " + this.getName(), () -> this.attack(this.getPlayer(), damage));
+		this.addCommand("read " + this.getName(), (Player player) -> this.attack(player, damage));
 	}
 	
 	@Override

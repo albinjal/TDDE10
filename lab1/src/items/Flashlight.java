@@ -4,13 +4,13 @@ import the_adventure.Player;
 
 public class Flashlight extends Tool {
 
-	public Flashlight(String name, double weight, Player player) {
-		super(name, weight, player);
+	public Flashlight(String name, double weight) {
+		super(name, weight);
 	}
 
 	@Override
-	public void use() {
-		this.getPlayer().getLocation().useFlashLight();
+	public void use(Player player) {
+		player.getLocation().useFlashLight();
 	}
 
 }

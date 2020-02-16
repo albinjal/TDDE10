@@ -4,12 +4,12 @@ import the_adventure.Player;
 
 public class LiuCard extends Tool {
 
-	public LiuCard(String name, double d, Player player) {
-		super(name, d, player);
+	public LiuCard(String name, double weight) {
+		super(name, weight);
 	}
 
 	@Override
-	public void use() {
-		this.getPlayer().getLocation().insertLiuCard(this.getPlayer());
+	public void use(Player player) {
+		player.getLocation().insertLiuCard();
 	}
 }

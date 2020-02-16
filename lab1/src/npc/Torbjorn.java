@@ -5,8 +5,8 @@ import the_adventure.Player;
 public class Torbjorn extends Human {
 
 	
-	public Torbjorn(String name, Player player) {
-		super(name, player);
+	public Torbjorn(String name) {
+		super(name);
 		
 	}
 	
@@ -14,7 +14,7 @@ public class Torbjorn extends Human {
 	public void interactWith(Player player) {
 		System.out.printf("I am you course admin. I hope you have studied well so that you are prepared for whats to come!\n"
 				+ "I dare you to do my Ada exam...");
-		this.addCommand("do exam", () -> this.exam(player));
+		this.addCommand("do exam", (Player p) -> this.exam(p));
 
 	}
 	
