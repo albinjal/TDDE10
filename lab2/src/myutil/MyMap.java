@@ -18,7 +18,8 @@ public class MyMap<K, V> implements BaseMap<K, V> {
 
 	@Override
 	public void print() {
-		
+		System.out.print("Keys: "); this.getKeys().print();
+		System.out.print("Values: "); this.getValues().print();
 	}
 
 	@Override
@@ -29,8 +30,8 @@ public class MyMap<K, V> implements BaseMap<K, V> {
 
 	@Override
 	public V get(K key) {
-		Integer index = this.getKeys().getIndexOf(key);
-		if (index == null) {
+		int index = this.getKeys().getIndexOf(key);
+		if (index == -1) {
 			return null;
 		}
 		return this.getValues().getElementAt(index);

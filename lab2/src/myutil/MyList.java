@@ -24,9 +24,11 @@ public class MyList<E> implements BaseList<E> {
 	public void print() {
 		MyNode<E> currentNode = this.getFirstNode();
 		while (currentNode != null) {
-			System.out.println(currentNode.getData());
+			System.out.print(currentNode.getData());
+			System.out.print(" ");
 			currentNode = currentNode.getNextRef();
 		}
+		System.out.println();
 	}
 
 	@Override
@@ -58,20 +60,21 @@ public class MyList<E> implements BaseList<E> {
 	}
 
 	@Override
-	public Integer getIndexOf(E element) {
+	public int getIndexOf(E element) {
 		MyNode<E> currentNode = this.getFirstNode();
 		if (currentNode == null) {
-			return null;
+			return -1;
 		}
-		Integer i = 0;
-		while (!currentNode.equals(element)) {
+		int i = 0;
+		while (!currentNode.getData().equals(element)) {
+		
 			currentNode = currentNode.getNextRef();
 			i++;
 			if (currentNode == null) {
-				return null;
+				return -1;
 			}
-
 		}
+
 		return i;
 	}
 

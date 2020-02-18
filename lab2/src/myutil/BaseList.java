@@ -6,5 +6,5 @@ public interface BaseList<E> extends BaseCollection {
     
 	public E getElementAt(int i);
 	
-	public Integer getIndexOf(E element);
+	public int getIndexOf(E element);
 }

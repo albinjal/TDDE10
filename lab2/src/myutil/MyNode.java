@@ -10,7 +10,7 @@ public class MyNode<E> {
 	}
 	
 	public void printData() {
-		System.out.println(data);
+		System.out.println(this.getData());
 	}
 	
 	public MyNode<E> getNextRef() {
