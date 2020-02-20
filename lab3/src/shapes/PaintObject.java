@@ -30,5 +30,11 @@ public abstract class PaintObject {
 	public int getSize() {
 		return this.size;
 	}
+	
+	public static PaintObject generate(String id, int x, int y, Color color) {
+		switch(id) {
+		default: return new Circle(x, y, color);
+		}
+	}
 		
 }

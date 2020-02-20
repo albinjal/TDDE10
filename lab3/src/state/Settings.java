@@ -5,14 +5,18 @@ import java.awt.Color;
 import shapes.PaintObject;
 
 public class Settings {
-	private Color color;
-	private Class<? extends PaintObject> shape;
+	private Color color = Color.black;
+	private String shapeID = "CIRCLE";
 	public Settings() {
-		// TODO Auto-generated constructor stub
+		
 	}
 	
-	public Class<? extends PaintObject> getShape() {
-		return this.shape;
+	public String getShapeID() {
+		return this.shapeID;
 	}
-
+	
+	public Color getColor() {
+		return this.color;
+	}
+	
 }
