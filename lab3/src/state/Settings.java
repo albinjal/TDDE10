@@ -19,4 +19,11 @@ public class Settings {
 		return this.color;
 	}
 	
+	public void setCcolor(Color color) {
+		this.color = color;
+	}
+	
+	public void setShapeID(String id) {
+		this.shapeID = id;
+	}
 }
