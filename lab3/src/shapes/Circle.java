@@ -5,16 +5,16 @@ import java.awt.Graphics;
 
 import javax.swing.JPanel;
 
-public class Circle extends JPanel {
-	
-	public Circle() {
+public class Circle extends PaintObject {
+
+	public Circle(int x, int y, Color color) {
+		super(x, y, color);
 	}
 	
 	@Override
-	public void paintComponent (Graphics g) {
-		super.paintComponent(g);
-		g.setColor(Color.YELLOW);
-		g.fillOval(0, 0, 50, 50);
+	public void draw (Graphics g) {
+		super.draw(g);
+		g.fillOval(this.getX(), this.getY(), this.getSize(), this.getSize());
 	}
 
 }

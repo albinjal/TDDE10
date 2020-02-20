@@ -11,12 +11,17 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
+import state.PaintState;
+import state.Settings;
+
 public class WindowFrame extends JFrame {
 	private final static double scaling = 0.5;
 	private DrawArea drawArea;
-	private ColorBar colorArea;
-	private JPanel shapeArea;
-	private JPanel toolbar;
+	private ColorBar colorBar;
+	private ShapeBar shapeBar;
+	private ButtonBar buttonBar;
+	private PaintState state = new PaintState();
+	private Settings setting = new Settings();
 
 	public WindowFrame() {
 		super("Välkommen till Ritprogrammet!");
@@ -29,45 +34,24 @@ public class WindowFrame extends JFrame {
 	}
 
 	private void addPanels() {
-		this.toolbar = new JPanel();
-		getContentPane().add(this.toolbar, BorderLayout.SOUTH);
-		this.toolbar.setLayout(new BoxLayout(this.toolbar, BoxLayout.X_AXIS));
-		this.toolbar.setBackground(Color.gray);
+		this.buttonBar = new ButtonBar();
+		getContentPane().add(this.buttonBar, BorderLayout.SOUTH);
 
-		JPanel panel = new JPanel();
-		getContentPane().add(panel, BorderLayout.EAST);
-		panel.setLayout(new BoxLayout(panel, BoxLayout.Y_AXIS));
-		panel.setBackground(Color.gray);
+		JPanel toolbar = new JPanel();
+		getContentPane().add(toolbar, BorderLayout.EAST);
+		toolbar.setLayout(new BoxLayout(toolbar, BoxLayout.Y_AXIS));
+		toolbar.setBackground(Color.gray);
 
-		this.shapeArea = new JPanel();
-		panel.add(this.shapeArea);
+		this.shapeBar = new ShapeBar();
+		toolbar.add(this.shapeBar);
 
-		this.colorArea = new ColorBar();
-		this.colorArea.addColor(Color.blue);
-		this.colorArea.addColor(Color.red);
-		panel.add(this.colorArea);
+		this.colorBar = new ColorBar();
+		this.colorBar.addColor(Color.blue);
+		this.colorBar.addColor(Color.red);
+		toolbar.add(this.colorBar);
 		
 		this.drawArea = new DrawArea();
 		getContentPane().add(this.drawArea, BorderLayout.CENTER);
-	}
-
-	private void addButtons() {
-		JButton btnNewButton_2 = new JButton("Rensa");
-		this.toolbar.add(btnNewButton_2);
-
-		JButton btnNewButton_1 = new JButton("Spara");
-		this.toolbar.add(btnNewButton_1);
-
-		JButton btnNewButton = new JButton("Öppna");
-		this.toolbar.add(btnNewButton);
-	}
-
-	private void addLabels() {
-		JLabel lblNewLabel_1 = new JLabel("Form");
-		this.shapeArea.add(lblNewLabel_1);
-		this.shapeArea.setBackground(Color.gray);
-		
-
 	}
 
 	private void setMeta() {
