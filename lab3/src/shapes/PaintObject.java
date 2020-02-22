@@ -31,10 +31,21 @@ public abstract class PaintObject {
 		return this.size;
 	}
 	
+	public void setSize(int size) {
+		this.size = size;
+	}
+	
+	public void setColor(Color color) {
+		this.color = color;
+	}
+	
 	public static PaintObject generate(String id, int x, int y, Color color) {
 		switch(id) {
+		case "RECTANGLE": return new Rectangle(x, y, color);
 		default: return new Circle(x, y, color);
 		}
 	}
+	
+	public abstract String getID();
 		
 }

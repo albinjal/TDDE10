@@ -40,19 +40,26 @@ public class WindowFrame extends JFrame implements MouseListener, ActionListener
 	private void addPanels() {
 		this.buttonBar = new ButtonBar(this);
 		getContentPane().add(this.buttonBar, BorderLayout.SOUTH);
-
 		JPanel toolbar = new JPanel();
 		getContentPane().add(toolbar, BorderLayout.EAST);
 		toolbar.setLayout(new BoxLayout(toolbar, BoxLayout.Y_AXIS));
 		toolbar.setBackground(Color.gray);
-
-		this.shapeBar = new ShapeBar();
-		toolbar.add(this.shapeBar);
-
-		this.colorBar = new ColorBar();
+		this.colorBar = new ColorBar(this.settings);
 		this.colorBar.addColor(Color.blue);
 		this.colorBar.addColor(Color.red);
+		this.colorBar.addColor(Color.orange);
+		this.colorBar.addColor(Color.yellow);
+		this.colorBar.addColor(Color.green);
+
 		toolbar.add(this.colorBar);
+		
+		this.shapeBar = new ShapeBar(this.settings);
+		
+		this.shapeBar.addShape("CIRCLE");
+		this.shapeBar.addShape("RECTANGLE");
+		toolbar.add(this.shapeBar);
+
+
 		
 		this.drawArea = new DrawArea();
 		getContentPane().add(this.drawArea, BorderLayout.CENTER);

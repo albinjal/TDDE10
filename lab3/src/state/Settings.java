@@ -19,7 +19,7 @@ public class Settings {
 		return this.color;
 	}
 	
-	public void setCcolor(Color color) {
+	public void setColor(Color color) {
 		this.color = color;
 	}
 	

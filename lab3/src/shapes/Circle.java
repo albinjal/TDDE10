@@ -6,7 +6,7 @@ import java.awt.Graphics;
 import javax.swing.JPanel;
 
 public class Circle extends PaintObject {
-
+	public String ID = "CIRCLE";
 	public Circle(int x, int y, Color color) {
 		super(x, y, color);
 	}
@@ -15,6 +15,10 @@ public class Circle extends PaintObject {
 	public void draw (Graphics g) {
 		super.draw(g);
 		g.fillOval(this.getX(), this.getY(), this.getSize(), this.getSize());
+	}
+	
+	public String getID() {
+		return this.ID;
 	}
 
 }
