@@ -21,7 +21,7 @@ public class ColorBar extends JPanel implements MouseListener {
 	public ColorBar(Settings settings) {
 		this.settingsRef = settings;
 		this.add(new JLabel("Färg"));
-		this.setLayout(new GridLayout(10, 0));
+		this.setLayout(new GridLayout(9, 1));
 		this.setBackground(background);
 	}
 
@@ -63,6 +63,10 @@ public class ColorBar extends JPanel implements MouseListener {
 		// TODO Auto-generated method stub
 		
 	}
+	public void selectIndex(int index) {
+		this.selectButton(this.buttons.get(index));
+	}
+	
 	
 	private void selectButton(ColorButton button) {
 		this.deSelectAll();
@@ -71,6 +75,7 @@ public class ColorBar extends JPanel implements MouseListener {
 		
 	}
 	
+
 	private void deSelectAll() {
 		for (ColorButton button : this.buttons) {
 			button.deSelect();

@@ -5,8 +5,8 @@ import java.awt.Color;
 import shapes.PaintObject;
 
 public class Settings {
-	private Color color = Color.black;
-	private String shapeID = "CIRCLE";
+	private Color color;
+	private String shapeID;
 	public Settings() {
 		
 	}

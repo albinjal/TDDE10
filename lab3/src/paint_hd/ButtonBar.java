@@ -19,13 +19,15 @@ public class ButtonBar extends JPanel {
 		JButton rensa = new JButton("Rensa");
 		rensa.addActionListener(listener);
 		this.add(rensa);
-/*
-		JButton btnNewButton_1 = new JButton("Spara");
-		this.add(btnNewButton_1);
 
-		JButton btnNewButton = new JButton("Öppna");
-		this.add(btnNewButton);
-		*/
+		JButton spara = new JButton("Spara");
+		spara.addActionListener(listener);
+		this.add(spara);
+
+		JButton open = new JButton("Öppna");
+		open.addActionListener(listener);
+		this.add(open);
+		
 	}
 
 

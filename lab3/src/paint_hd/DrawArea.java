@@ -16,22 +16,18 @@ import shapes.PaintObject;
 import state.PaintState;
 
 public class DrawArea extends JPanel {
-	private ArrayList<PaintObject> objects = new ArrayList<PaintObject>();
-	public DrawArea() {
+	PaintState state;
+	public DrawArea(PaintState state) {
+		this.state = state;
 	}
 	
 	
 	@Override
 	public void paintComponent (Graphics g) {
-		for (PaintObject object : this.objects) {
+		for (PaintObject object : this.state.getObjects()) {
+			System.out.println(object);
 			object.draw(g);
 		}
 	}
-	
-	public void patchData(ArrayList<PaintObject> objects) {
-		this.objects = objects;
-		this.repaint();
-	}
-
 	
 }

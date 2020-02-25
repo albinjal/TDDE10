@@ -21,7 +21,7 @@ public class ShapeBar extends JPanel implements MouseListener {
 		this.settingsRef = settings;
 		JLabel lblNewLabel_1 = new JLabel("Form");
 		this.add(lblNewLabel_1);
-		this.setLayout(new GridLayout(6, 0));
+		this.setLayout(new GridLayout(4, 0));
 		this.setBackground(background);
 	}
 	
@@ -29,6 +29,10 @@ public class ShapeBar extends JPanel implements MouseListener {
 		ShapeButton button = new ShapeButton(id, background, this);
 		this.buttons.add(button);
 		this.add(button);
+	}
+	
+	public void selectIndex(int index) {
+		this.selectButton(this.buttons.get(index));
 	}
 
 	@Override
@@ -66,8 +70,8 @@ public class ShapeBar extends JPanel implements MouseListener {
 		this.deSelectAll();
 		button.select();
 		this.settingsRef.setShapeID(button.getShapeID());
-		
 	}
+	 
 	
 	private void deSelectAll() {
 		for (ShapeButton button : this.buttons) {

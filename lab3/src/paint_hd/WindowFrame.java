@@ -49,7 +49,12 @@ public class WindowFrame extends JFrame implements MouseListener, ActionListener
 		this.colorBar.addColor(Color.red);
 		this.colorBar.addColor(Color.orange);
 		this.colorBar.addColor(Color.yellow);
-		this.colorBar.addColor(Color.green);
+		this.colorBar.addColor(Color.cyan);
+		this.colorBar.addColor(Color.magenta);
+		this.colorBar.addColor(Color.DARK_GRAY);
+		this.colorBar.addColor(Color.PINK);
+		this.colorBar.selectIndex(0);
+		
 
 		toolbar.add(this.colorBar);
 		
@@ -57,11 +62,14 @@ public class WindowFrame extends JFrame implements MouseListener, ActionListener
 		
 		this.shapeBar.addShape("CIRCLE");
 		this.shapeBar.addShape("RECTANGLE");
+		this.shapeBar.addShape("TRIANGLE");
+		this.shapeBar.selectIndex(0);
+
 		toolbar.add(this.shapeBar);
 
 
 		
-		this.drawArea = new DrawArea();
+		this.drawArea = new DrawArea(this.state);
 		getContentPane().add(this.drawArea, BorderLayout.CENTER);
 		this.drawArea.addMouseListener(this);
 	}
@@ -88,7 +96,7 @@ public class WindowFrame extends JFrame implements MouseListener, ActionListener
 	@Override
 	public void mouseReleased(MouseEvent e) {
 		this.state.addObject(e.getX() - 25, e.getY() - 25, this.settings);
-		this.drawArea.patchData(this.state.getObjects());
+		this.drawArea.repaint();
 		
 	}
 
@@ -106,8 +114,19 @@ public class WindowFrame extends JFrame implements MouseListener, ActionListener
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		this.state.clear();
-		this.drawArea.patchData(this.state.getObjects());
+		switch(e.getActionCommand()) {
+		case "Öppna": {
+			this.state.loadFromFile();
+		this.drawArea.repaint();
+		break;
+		}
+		case "Rensa": {
+			this.state.clear();
+			this.drawArea.repaint();
+			break; }
+		case "Spara": this.state.saveToFile();
+		default: break;
+		}
 	}
 	
 

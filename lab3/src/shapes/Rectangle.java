@@ -7,7 +7,6 @@ public class Rectangle extends PaintObject {
 	private String ID = "RECTANGLE";
 	public Rectangle(int x, int y, Color color) {
 		super(x, y, color);
-		// TODO Auto-generated constructor stub
 	}
 
 	@Override

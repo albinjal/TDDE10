@@ -2,8 +2,9 @@ package shapes;
 
 import java.awt.Color;
 import java.awt.Graphics;
+import java.io.Serializable;
 
-public abstract class PaintObject {
+public abstract class PaintObject implements Serializable {
 	private int x;
 	private int y;
 	private Color color;
@@ -41,6 +42,7 @@ public abstract class PaintObject {
 	
 	public static PaintObject generate(String id, int x, int y, Color color) {
 		switch(id) {
+		case "TRIANGLE": return new Triangle(x, y, color);
 		case "RECTANGLE": return new Rectangle(x, y, color);
 		default: return new Circle(x, y, color);
 		}

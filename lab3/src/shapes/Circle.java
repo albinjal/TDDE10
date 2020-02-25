@@ -6,7 +6,7 @@ import java.awt.Graphics;
 import javax.swing.JPanel;
 
 public class Circle extends PaintObject {
-	public String ID = "CIRCLE";
+	private String ID = "CIRCLE";
 	public Circle(int x, int y, Color color) {
 		super(x, y, color);
 	}
