@@ -1,6 +1,5 @@
 package state;
 
-import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
@@ -12,28 +11,26 @@ import java.util.ArrayList;
 
 import javax.swing.JFileChooser;
 
-
 import shapes.PaintObject;
 
 public class PaintState implements Serializable {
 	private ArrayList<PaintObject> objects = new ArrayList<PaintObject>();
+
 	public PaintState() {
 	}
-	
-	
-	
+
 	public void addObject(int x, int y, Settings set) {
 		this.objects.add(PaintObject.generate(set.getShapeID(), x, y, set.getColor()));
 	}
-	
+
 	public ArrayList<PaintObject> getObjects() {
 		return this.objects;
 	}
-	
+
 	public void clear() {
 		this.objects.clear();
 	}
-	
+
 	public void saveToFile() {
 		JFileChooser fc = new JFileChooser();
 		int option = fc.showSaveDialog(null);
@@ -49,9 +46,10 @@ public class PaintState implements Serializable {
 			} catch (IOException e) {
 				e.printStackTrace();
 			}
-		}}
+		}
+		}
 	}
-	
+
 	public void loadFromFile() {
 		JFileChooser fc = new JFileChooser();
 		int option = fc.showOpenDialog(null);
@@ -59,10 +57,10 @@ public class PaintState implements Serializable {
 		case JFileChooser.APPROVE_OPTION: {
 			try {
 				FileInputStream fis = new FileInputStream(fc.getSelectedFile());
-			      ObjectInputStream ois = new ObjectInputStream(fis);
-			      PaintState state = (PaintState) ois.readObject();
-			      ois.close();
-			      this.objects = state.objects;
+				ObjectInputStream ois = new ObjectInputStream(fis);
+				PaintState state = (PaintState) ois.readObject();
+				ois.close();
+				this.objects = state.objects;
 			} catch (FileNotFoundException e) {
 				e.printStackTrace();
 			} catch (IOException e) {
@@ -70,8 +68,9 @@ public class PaintState implements Serializable {
 			} catch (ClassNotFoundException e) {
 				e.printStackTrace();
 			}
-		}}
-		
+		}
+		}
+
 	}
 
 }

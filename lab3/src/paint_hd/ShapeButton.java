@@ -2,14 +2,10 @@ package paint_hd;
 
 import java.awt.Color;
 import java.awt.Graphics;
-import java.util.ArrayList;
 
-import javax.swing.JFrame;
 import javax.swing.JPanel;
-import javax.swing.border.LineBorder;
 
 import shapes.PaintObject;
-import state.Settings;
 
 public class ShapeButton extends JPanel {
 	private PaintObject shape;

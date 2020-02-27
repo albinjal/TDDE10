@@ -3,16 +3,15 @@ package paint_hd;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Dimension;
+import java.awt.GridLayout;
 import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 
-import javax.swing.BoxLayout;
-import javax.swing.JButton;
+import javax.swing.Box;
 import javax.swing.JFrame;
-import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 import state.PaintState;
@@ -42,7 +41,7 @@ public class WindowFrame extends JFrame implements MouseListener, ActionListener
 		getContentPane().add(this.buttonBar, BorderLayout.SOUTH);
 		JPanel toolbar = new JPanel();
 		getContentPane().add(toolbar, BorderLayout.EAST);
-		toolbar.setLayout(new BoxLayout(toolbar, BoxLayout.Y_AXIS));
+		toolbar.setLayout(new GridLayout(2, 1));
 		toolbar.setBackground(Color.gray);
 		this.colorBar = new ColorBar(this.settings);
 		this.colorBar.addColor(Color.blue);
@@ -54,21 +53,21 @@ public class WindowFrame extends JFrame implements MouseListener, ActionListener
 		this.colorBar.addColor(Color.DARK_GRAY);
 		this.colorBar.addColor(Color.PINK);
 		this.colorBar.selectIndex(0);
-		
 
 		toolbar.add(this.colorBar);
-		
+
 		this.shapeBar = new ShapeBar(this.settings);
-		
+
 		this.shapeBar.addShape("CIRCLE");
 		this.shapeBar.addShape("RECTANGLE");
 		this.shapeBar.addShape("TRIANGLE");
+		for (int i = 0; i < 5; i++) {
+			this.shapeBar.add(Box.createVerticalGlue());
+		}
 		this.shapeBar.selectIndex(0);
 
 		toolbar.add(this.shapeBar);
 
-
-		
 		this.drawArea = new DrawArea(this.state);
 		getContentPane().add(this.drawArea, BorderLayout.CENTER);
 		this.drawArea.addMouseListener(this);
@@ -84,50 +83,52 @@ public class WindowFrame extends JFrame implements MouseListener, ActionListener
 
 	@Override
 	public void mouseClicked(MouseEvent e) {
-	
+
 	}
 
 	@Override
 	public void mousePressed(MouseEvent e) {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 	@Override
 	public void mouseReleased(MouseEvent e) {
 		this.state.addObject(e.getX() - 25, e.getY() - 25, this.settings);
 		this.drawArea.repaint();
-		
+
 	}
 
 	@Override
 	public void mouseEntered(MouseEvent e) {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 	@Override
 	public void mouseExited(MouseEvent e) {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		switch(e.getActionCommand()) {
+		switch (e.getActionCommand()) {
 		case "Öppna": {
 			this.state.loadFromFile();
-		this.drawArea.repaint();
-		break;
+			this.drawArea.repaint();
+			break;
 		}
 		case "Rensa": {
 			this.state.clear();
 			this.drawArea.repaint();
-			break; }
-		case "Spara": this.state.saveToFile();
-		default: break;
+			break;
+		}
+		case "Spara":
+			this.state.saveToFile();
+		default:
+			break;
 		}
 	}
-	
 
 }

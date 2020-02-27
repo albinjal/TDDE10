@@ -1,15 +1,14 @@
 package paint_hd;
 
 import java.awt.Color;
-import java.awt.GridLayout;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.util.ArrayList;
 
+import javax.swing.BoxLayout;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
-import shapes.PaintObject;
 import state.Settings;
 
 public class ShapeBar extends JPanel implements MouseListener {
@@ -21,12 +20,12 @@ public class ShapeBar extends JPanel implements MouseListener {
 		this.settingsRef = settings;
 		JLabel lblNewLabel_1 = new JLabel("Form");
 		this.add(lblNewLabel_1);
-		this.setLayout(new GridLayout(4, 0));
+		this.setLayout(new BoxLayout(this, BoxLayout.PAGE_AXIS));
 		this.setBackground(background);
 	}
 	
 	public void addShape(String id) {
-		ShapeButton button = new ShapeButton(id, background, this);
+		ShapeButton button = new ShapeButton(id, this.getBackground(), this);
 		this.buttons.add(button);
 		this.add(button);
 	}
