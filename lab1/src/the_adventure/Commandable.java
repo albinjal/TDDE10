@@ -4,7 +4,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 public abstract class Commandable {
-	private Map<String, Command> commands = new HashMap<>();
+	private Map<String, Command> commands = new HashMap<String, Command>();
 	private String name;
 
 	
